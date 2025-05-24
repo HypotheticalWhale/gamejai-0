@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfdkugfw21d5m"]
+
+[ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_q5vih"]
+[ext_resource type="Script" uid="uid://d0pt3512k3tgc" path="res://Scenes/Kitchen.gd" id="2_pbq7o"]
+[ext_resource type="Texture2D" uid="uid://bej7lovkwkive" path="res://Screens/Kitchen.png" id="2_t2sl4"]
+
+[node name="Screen" instance=ExtResource("1_q5vih")]
+script = ExtResource("2_pbq7o")
+
+[node name="TextureRect" parent="." index="0"]
+texture = ExtResource("2_t2sl4")
+
+[node name="ButtonContainer" type="VBoxContainer" parent="." index="1"]
+offset_right = 86.0
+offset_bottom = 103.0
+
+[node name="VBoxContainer" type="HBoxContainer" parent="ButtonContainer" index="0"]
+layout_mode = 2
+
+[node name="Button1" type="Button" parent="ButtonContainer/VBoxContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="ButtonContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="ButtonContainer/VBoxContainer" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "3"
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="ButtonContainer" index="1"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="ButtonContainer/VBoxContainer2" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="ButtonContainer/VBoxContainer2" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="ButtonContainer/VBoxContainer2" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "6"
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="ButtonContainer" index="2"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="ButtonContainer/VBoxContainer3" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="ButtonContainer/VBoxContainer3" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="ButtonContainer/VBoxContainer3" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "9"
+
+[node name="VBoxContainer4" type="HBoxContainer" parent="ButtonContainer" index="3"]
+layout_mode = 2
+
+[node name="ButtonHash" type="Button" parent="ButtonContainer/VBoxContainer4" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "*"
+
+[node name="Button0" type="Button" parent="ButtonContainer/VBoxContainer4" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "0"
+
+[node name="ButtonPound" type="Button" parent="ButtonContainer/VBoxContainer4" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "#"
+
+[node name="Pick" type="Button" parent="ButtonContainer" index="4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pick up the phone"
+
+[node name="Put" type="Button" parent="ButtonContainer" index="5"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Put down the phone"
+
+[connection signal="pressed" from="ButtonContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer2/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer2/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer2/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer3/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer3/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer3/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer4/ButtonHash" to="." method="_on_button_hash_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer4/Button0" to="." method="_on_button_0_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer4/ButtonPound" to="." method="_on_button_pound_pressed"]
+[connection signal="pressed" from="ButtonContainer/Pick" to="." method="_on_pick_pressed"]
+[connection signal="pressed" from="ButtonContainer/Put" to="." method="_on_put_pressed"]

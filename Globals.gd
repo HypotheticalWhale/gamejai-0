@@ -1,9 +1,10 @@
 extends Node
 
 var location_map = {
-	Vector2(0,0) : "res://Screens/Screen.png",
-	Vector2(0,1) : "res://Screens/Screen1.png",
-	Vector2(0,2) : "res://Screens/Screen2.png",
+	Vector2(0,0) : {"scene": "res://Scenes/LivingRoom.tscn", "texture": "res://Screens/Screen.png"},
+	Vector2(0,1) : {"scene": "res://Scenes/Kitchen.tscn", "texture": "res://Screens/Screen1.png"},
+	Vector2(0,2) : {"scene": "res://Scenes/Study.tscn", "texture": "res://Screens/Screen2.png"},
+	Vector2(0,3) : {"scene": "res://Scenes/Bedroom.tscn", "texture": "res://Screens/Screen2.png"},
 }
 
 # start unscramble picture variables
@@ -26,3 +27,6 @@ var tile_length = 128
 var num_rows = 3
 var picture_global_position = Vector2(480, 240)
 # end unscramble picture variables
+
+var fear = 0
+var base_fear = 0
