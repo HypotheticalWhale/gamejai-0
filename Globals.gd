@@ -34,7 +34,7 @@ var picture_id2coord = {}
 var gap_id: int = 6
 var tile_length = 300
 var num_rows = 3
-var picture_global_position = Vector2(480, 240)
+var picture_global_position = Vector2(640, 240)
 var is_picture_unscrambled = false
 # end unscramble picture variables
 
