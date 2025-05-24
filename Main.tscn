@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://kei2jqs3n4o8" path="res://Sounds/Fear75.wav" id="4_lgr22"]
 
 [node name="Main" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_uu6xs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

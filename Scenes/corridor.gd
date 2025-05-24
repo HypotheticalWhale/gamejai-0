@@ -37,7 +37,7 @@ func _ready() -> void:
 		await get_tree().create_timer(3).timeout
 		
 		dialog.visible = true
-		dialog.text = Globals.dialog_data["CORRIDOR DIALOGUE (UPON ENTERING CORRIDOR FOR SECOND TIME, CALL INCOMPLETE– HINT!)"]
+		dialog.text = Globals.dialog_data["CORRIDOR DIALOGUE (UPON ENTERING CORRIDOR FOR SECOND TIME, PICTURE INCOMPLETE– HINT!)"]
 		await get_tree().create_timer(6).timeout
 		dialog.visible = false
 		return
@@ -52,7 +52,7 @@ func _ready() -> void:
 		await get_tree().create_timer(3).timeout
 		
 		dialog.visible = true
-		dialog.text = Globals.dialog_data["CORRIDOR DIALOGUE (UPON ENTERING CORRIDOR FOR SECOND TIME, PICTURE INCOMPLETE– HINT!)"]
+		dialog.text = Globals.dialog_data["CORRIDOR DIALOGUE (UPON ENTERING CORRIDOR FOR SECOND TIME, CALL INCOMPLETE– HINT!)"]
 		await get_tree().create_timer(6).timeout
 		dialog.visible = false
 		return
@@ -71,7 +71,7 @@ func _ready() -> void:
 	if Globals.tier_4_corridor_count == 1:
 		dialog.visible = true
 		dialog.text = Globals.dialog_data["DIALOGUE 1 (TRIGGERED BY ENTERING CORRIDOR SECOND TIME)"]
-		await get_tree().create_timer(6).timeout
+		await get_tree().create_timer(9).timeout
 		dialog.visible = false
 		return
 
@@ -79,7 +79,7 @@ func _ready() -> void:
 	if Globals.tier_4_corridor_count == 2:
 		dialog.visible = true
 		dialog.text = Globals.dialog_data["DIALOGUE 2 (TRIGGERED BY ENTERING CORRIDOR THIRD TIME)"]
-		await get_tree().create_timer(6).timeout
+		await get_tree().create_timer(9).timeout
 		dialog.visible = false
 		return
 
@@ -87,6 +87,8 @@ func _ready() -> void:
 	if Globals.tier_4_corridor_count == 3:
 		dialog.visible = true
 		dialog.text = Globals.dialog_data["DIALOGUE 3 (TRIGGERED BY ENTERING CORRIDOR FOURTH TIME)"]
-		await get_tree().create_timer(6).timeout
+		await get_tree().create_timer(9).timeout
 		dialog.visible = false
 		return
+
+	

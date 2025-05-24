@@ -6,6 +6,7 @@ var can_stage = true
 func _ready() -> void:
 	if Globals.is_picture_unscrambled:
 		can_stage = false
+		
 	if get_tree().current_scene.player_has_key:
 		await update_picture_id2coord()
 		await initialize_picture()
@@ -26,6 +27,14 @@ func _ready() -> void:
 			dialog.text = Globals.dialog_data["AFTER 30 SECONDS OF BEING IN BEDROOM"]
 			await get_tree().create_timer(3).timeout
 			dialog.visible = false
+	
+	if Globals.tier_4_corridor_count >= 3:
+		dialog.visible = false
+		Globals.at_last_bedroom = true
+		dialog.visible = true
+		dialog.text = Globals.dialog_data["UPON ENTERING BEDROOM FOR THE LAST TIME, CORRIDOR LOCKED"]
+		await get_tree().create_timer(6).timeout
+		
 	
 func get_adjacent_gap(tile_coord):
 	# id 8 represents gap

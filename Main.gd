@@ -89,5 +89,8 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	%FearMeter.value = Globals.fear
-	if Input.is_action_just_pressed("ui_up") and footstep_cooldown.is_stopped():
+	if Input.is_action_just_pressed("ui_up") and footstep_cooldown.is_stopped() and Globals.at_last_bedroom == false:
 		move("north")
+	
+	if Input.is_action_just_pressed("ui_down") and Globals.at_last_bedroom:
+		get_tree().change_scene_to_file("res://Scenes/BlackScene.tscn")

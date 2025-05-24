@@ -35,6 +35,7 @@ var tile_length = 128
 var num_rows = 3
 var picture_global_position = Vector2(480, 240)
 var is_picture_unscrambled = false
+var at_last_bedroom = false
 # end unscramble picture variables
 
 # start dialog variables
