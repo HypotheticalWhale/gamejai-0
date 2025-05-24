@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_dyjbl"]
 [ext_resource type="Texture2D" uid="uid://cn25hmovjknns" path="res://Assets/Corridor.png" id="2_7jym2"]
 
-[node name="Screen2" instance=ExtResource("1_dyjbl")]
+[node name="Screen3" instance=ExtResource("1_dyjbl")]
 
 [node name="TextureRect" parent="." index="0"]
 offset_right = 2048.0

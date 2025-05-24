@@ -15,6 +15,8 @@ var basefeat = {
 }
 
 func move(direction:String):
+	if Globals.location_map[current_position]["scene"] == "res://Scenes/Bedroom.tscn":
+		print(get_node("Screen2/ScrambledPicture"))
 	var offset = get_vector(direction)
 	var new_pos = current_position + offset
 	# Wrap the position using mod 4
