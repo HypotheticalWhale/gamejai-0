@@ -3,6 +3,18 @@ extends Control
 func _ready() -> void:
 	await update_picture_id2coord()
 	await initialize_picture()
+	var dialog = get_tree().current_scene.get_node("CanvasLayer/Dialog")
+	if get_tree().current_scene.stage == 3:
+		dialog.visible = true
+		dialog.text = Globals.dialog_data["UPON REACHING BEDROOM"]
+		await get_tree().create_timer(3).timeout
+		dialog.visible = false
+		
+	await get_tree().create_timer(3).timeout
+	dialog.visible = true
+	dialog.text = Globals.dialog_data["AFTER 30 SECONDS OF BEING IN BEDROOM"]
+	await get_tree().create_timer(3).timeout
+	dialog.visible = false
 	
 func get_adjacent_gap(tile_coord):
 	# id 8 represents gap
@@ -88,3 +100,8 @@ func update_picture_id2coord():
 
 func _on_exit_picture_pressed() -> void:
 	%ScrambledPicture.visible = false
+
+
+func _on_closet_pressed() -> void:
+	# change closet image here
+	get_tree().current_scene.player_has_key = true

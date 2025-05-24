@@ -4,7 +4,7 @@ var current_position = Vector2(0,0)
 var current_room_string = "res://Scenes/Screen.tscn"
 var current_room = null
 var first_stage = true
-var player_has_key = true
+var player_has_key = false
 @onready var fear_timer: Timer = %FearTimer
 var stage: int = 3  # Start at Stage 1
 var basefeat = {
@@ -30,7 +30,7 @@ func move(direction:String):
 		fear_timer.stop()
 		fear_timer.start()
 		
-	if first_stage and new_pos == Vector2(0,4):
+	if first_stage and new_pos == Vector2(0,5):
 		print("No room here")
 		return
 	
@@ -60,6 +60,13 @@ func _ready() -> void:
 	var scene_to_load = Globals.location_map[current_position].scene
 	var scene = load(scene_to_load).instantiate()
 	load_room()
+	
+	await get_tree().create_timer(2).timeout
+	%Dialog.visible = true
+	%Dialog.text = Globals.dialog_data["BEGINNING"]
+	await get_tree().create_timer(3).timeout
+	%Dialog.visible = false
+	
 	
 func _process(delta: float) -> void:
 	%FearMeter.value = Globals.fear

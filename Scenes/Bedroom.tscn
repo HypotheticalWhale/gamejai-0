@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://d0htj0beihwht"]
 
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_qd8ot"]
-[ext_resource type="Texture2D" uid="uid://1v52hf0obwsf" path="res://Assets/Bedroom.png" id="2_qd8ot"]
+[ext_resource type="Texture2D" uid="uid://cw0vnl64exnq6" path="res://Assets/Bedroom.png" id="2_qd8ot"]
 [ext_resource type="Script" uid="uid://bdg432x7xqyg3" path="res://Scenes/bedroom.gd" id="2_t6n27"]
-[ext_resource type="Script" uid="uid://bw82jhuayhvng" path="res://Scenes/show_picture.gd" id="3_0y5hw"]
+[ext_resource type="Script" path="res://Scenes/show_picture.gd" id="3_0y5hw"]
 [ext_resource type="Texture2D" uid="uid://e687xhpv0qps" path="res://Assets/PictureFrame.png" id="5_23pcv"]
 [ext_resource type="Texture2D" uid="uid://b3d48pfmd3yle" path="res://Assets/PictureTiles/0tile.png" id="6_mon1l"]
 [ext_resource type="Texture2D" uid="uid://qyu3px672k0y" path="res://Assets/PictureTiles/1tile.png" id="7_vpmn7"]
@@ -134,6 +134,15 @@ offset_bottom = 541.0
 text = "aksjdhflkjasdfhkldsjhalkfjhfd"
 script = ExtResource("3_0y5hw")
 
+[node name="Closet" type="Button" parent="." index="3"]
+layout_mode = 0
+offset_left = 863.0
+offset_top = 510.0
+offset_right = 1094.0
+offset_bottom = 541.0
+text = "this is a closet"
+
 [connection signal="pressed" from="ScrambledPicture/ExitPicture" to="." method="_on_exit_picture_pressed"]
 [connection signal="pressed" from="ShowPicture" to="." method="_on_show_picture_pressed"]
 [connection signal="pressed" from="ShowPicture" to="ShowPicture" method="_on_pressed"]
+[connection signal="pressed" from="Closet" to="." method="_on_closet_pressed"]
