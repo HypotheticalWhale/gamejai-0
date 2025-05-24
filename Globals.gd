@@ -18,15 +18,15 @@ var tier_4_activated = false
 var can_move = true
 # start unscramble picture variables
 var picture_coord2id = {
-	Vector2(0,0): 0,
-	Vector2(1,0): 1,
+	Vector2(0,0): 3,
+	Vector2(1,0): 0,
 	Vector2(2,0): 2,
-	Vector2(0,1): 3,
+	Vector2(0,1): 1,
 	Vector2(1,1): 4,
-	Vector2(2,1): 5,
-	Vector2(0,2): 6,
-	Vector2(1,2): 8,
-	Vector2(2,2): 7,
+	Vector2(2,1): 6,
+	Vector2(0,2): 7,
+	Vector2(1,2): 5,
+	Vector2(2,2): 8,
 }
 
 var picture_id2coord = {}

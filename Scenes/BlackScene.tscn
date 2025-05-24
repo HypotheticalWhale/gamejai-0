@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpcr4agm2xcj5"]
+
+[ext_resource type="Script" uid="uid://cfubegi5tswrm" path="res://Scenes/black_scene.gd" id="1_23wjk"]
+[ext_resource type="Texture2D" uid="uid://rbqdq1j128gk" path="res://Assets/NewBlackScreen.png" id="2_23wjk"]
+
+[node name="BlackScene" type="Node2D"]
+script = ExtResource("1_23wjk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(20, 20)
+texture = ExtResource("2_23wjk")
+
+[node name="Dialog" type="Label" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 716.0
+offset_top = 1012.0
+offset_right = 1332.0
+offset_bottom = 1278.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "fsdfasdasdf"
