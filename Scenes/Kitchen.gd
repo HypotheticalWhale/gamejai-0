@@ -8,6 +8,7 @@ var current_input_set := []
 var current_set_index := 0
 var input_cooldown := 1  # seconds to wait between sets
 var correct_answer = [["9","7","2"],["1","2","3"],["6","8","9"]]
+var can_stage = true
 var sound_string = "WrongNumber"
 @onready var dial_tone = %DialTone
 @onready var possible_buttons = [
@@ -48,7 +49,9 @@ func _on_button_pressed(button_name: String) -> void:
 				dial_tone.play()
 				await dial_tone.finished
 				get_tree().paused = false
-				get_parent().stage -= 1
+				if can_stage:
+					get_parent().stage -= 1
+					can_stage = false
 				Globals.is_phone_solved = true
 			else:
 				var aug_sound_string
@@ -101,6 +104,8 @@ func _set_buttons_disabled():
 func _ready() -> void:
 	if !get_parent().player_has_key:
 		%Phone.visible = false
+	if Globals.is_phone_solved:
+		can_stage = false
 	for button in possible_buttons:
 		button.connect("pressed", _on_button_pressed.bind(button.text))
 	_set_buttons_disabled()
