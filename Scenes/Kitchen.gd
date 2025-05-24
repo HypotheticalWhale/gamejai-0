@@ -37,6 +37,7 @@ func _on_button_pressed(button_name: String) -> void:
 			if input_sets == correct_answer:
 				print("you got it")
 				get_parent().stage -= 1
+				Globals.is_phone_solved = true
 			else:
 				print("wrong answer")
 			%Put.set_deferred("disabled", false)

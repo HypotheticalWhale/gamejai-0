@@ -56,7 +56,7 @@ wait_time = 3.0
 
 [node name="FootstepCooldown" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 0.5
 one_shot = true
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]

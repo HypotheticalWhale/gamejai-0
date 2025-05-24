@@ -1,20 +1,26 @@
 extends Control
 
+@onready var dialog = get_tree().current_scene.get_node("CanvasLayer/Dialog")
+
 func _ready() -> void:
-	await update_picture_id2coord()
-	await initialize_picture()
-	var dialog = get_tree().current_scene.get_node("CanvasLayer/Dialog")
-	if get_tree().current_scene.stage == 3:
+	if get_tree().current_scene.player_has_key:
+		await update_picture_id2coord()
+		await initialize_picture()
+		%ShowPicture.visible = true
+	
+	if get_tree().current_scene.player_has_key == false:
 		dialog.visible = true
 		dialog.text = Globals.dialog_data["UPON REACHING BEDROOM"]
 		await get_tree().create_timer(3).timeout
 		dialog.visible = false
 		
-	await get_tree().create_timer(3).timeout
-	dialog.visible = true
-	dialog.text = Globals.dialog_data["AFTER 30 SECONDS OF BEING IN BEDROOM"]
-	await get_tree().create_timer(3).timeout
-	dialog.visible = false
+		await get_tree().create_timer(30).timeout
+		# need to check if we should still play this when the room changes
+		if get_tree().current_scene.player_has_key == false:
+			dialog.visible = true
+			dialog.text = Globals.dialog_data["AFTER 30 SECONDS OF BEING IN BEDROOM"]
+			await get_tree().create_timer(3).timeout
+			dialog.visible = false
 	
 func get_adjacent_gap(tile_coord):
 	# id 8 represents gap
@@ -53,7 +59,7 @@ func fill_gap(initial_coord, final_coord):
 	await update_picture_id2coord()
 	
 
-func is_picture_unscrambled():
+func get_is_picture_unscrambled():
 	var current_picture = Globals.picture_coord2id.values()
 	var ordered_picture = current_picture.duplicate(true)
 	ordered_picture.sort()
@@ -92,7 +98,7 @@ func _on_tile_clicked(viewport, event, shape_idx):
 			await fill_gap(tile_coord_clicked, adjacent_gap)
 		else:
 			print("not sliding")
-		print(is_picture_unscrambled())
+		Globals.is_picture_unscrambled = get_is_picture_unscrambled()
 			
 
 func update_picture_id2coord():
@@ -106,3 +112,7 @@ func _on_exit_picture_pressed() -> void:
 func _on_closet_pressed() -> void:
 	# change closet image here
 	get_tree().current_scene.player_has_key = true
+	dialog.visible = true
+	dialog.text = Globals.dialog_data["AFTER OPENING CLOSET"]
+	await get_tree().create_timer(3).timeout
+	dialog.visible = false

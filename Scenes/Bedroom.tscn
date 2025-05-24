@@ -127,6 +127,8 @@ offset_bottom = 1152.0
 texture = ExtResource("2_qd8ot")
 
 [node name="ShowPicture" type="Button" parent="." index="2"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 863.0
 offset_top = 510.0
