@@ -7,6 +7,8 @@ func _ready() -> void:
 		await update_picture_id2coord()
 		await initialize_picture()
 		%ShowPicture.visible = true
+		%Closet.set_deferred("visible",false)
+		
 	
 	if get_tree().current_scene.player_has_key == false:
 		dialog.visible = true
@@ -122,5 +124,6 @@ func _on_closet_pressed() -> void:
 	get_tree().current_scene.player_has_key = true
 	dialog.visible = true
 	dialog.text = Globals.dialog_data["AFTER OPENING CLOSET"]
+	%Closet.set_deferred("visible",false)
 	await get_tree().create_timer(3).timeout
 	dialog.visible = false

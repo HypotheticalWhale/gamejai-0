@@ -138,6 +138,7 @@ text = "aksjdhflkjasdfhkldsjhalkfjhfd"
 script = ExtResource("3_0y5hw")
 
 [node name="Closet" type="Button" parent="." index="3"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 286.0
 offset_top = 399.0
