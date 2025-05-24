@@ -6,6 +6,7 @@ var current_room = null
 var first_stage = true
 var player_has_key = false
 @onready var fear_timer: Timer = %FearTimer
+@onready var footstep_cooldown = %FootstepCooldown
 var stage: int = 3  # Start at Stage 1
 var basefeat = {
 	3 : 0,
@@ -35,6 +36,8 @@ func move(direction:String):
 		return
 	
 	if Globals.location_map.has(new_pos):
+		%FootSteps.play()
+		footstep_cooldown.start()
 		current_position = new_pos
 		load_room()
 
@@ -70,5 +73,5 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	%FearMeter.value = Globals.fear
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_up") and footstep_cooldown.is_stopped():
 		move("north")

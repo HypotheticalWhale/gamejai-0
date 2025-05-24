@@ -14,8 +14,10 @@ texture = ExtResource("3_t2sl4")
 
 [node name="ButtonContainer" type="VBoxContainer" parent="." index="1"]
 layout_mode = 0
-offset_right = 86.0
-offset_bottom = 103.0
+offset_left = 453.0
+offset_top = 111.0
+offset_right = 618.0
+offset_bottom = 317.0
 
 [node name="VBoxContainer" type="HBoxContainer" parent="ButtonContainer" index="0"]
 layout_mode = 2

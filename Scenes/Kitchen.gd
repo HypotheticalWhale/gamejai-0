@@ -7,6 +7,7 @@ var input_sets := []
 var current_input_set := []
 var current_set_index := 0
 var input_cooldown := 1  # seconds to wait between sets
+var correct_answer = [["9","7","2"],["1","2","3"],["6","8","9"]]
 
 @onready var possible_buttons = [
 	%Button0, %Button1, %Button2,
@@ -33,6 +34,11 @@ func _on_button_pressed(button_name: String) -> void:
 			_set_buttons_enabled()
 		else:
 			print("All inputs collected:", input_sets)
+			if input_sets == correct_answer:
+				print("you got it")
+				get_parent().stage -= 1
+			else:
+				print("wrong answer")
 			%Put.set_deferred("disabled", false)
 			
 			# Optionally disable permanently or do something else
@@ -51,12 +57,14 @@ func _ready() -> void:
 	_set_buttons_disabled()
 
 func _on_pick_pressed() -> void:
+	get_parent().get_node("Phone").play()
 	_set_buttons_enabled()
 	%Pick.set_deferred("disabled", true)
 
 func _on_put_pressed() -> void:
+	get_parent().get_node("Phone").play()
 	current_input_set = []
 	current_set_index = 0
 	%Put.set_deferred("disabled", true)
-	%Pick.set_deferred("disabled", false	)
+	%Pick.set_deferred("disabled", false)
 	
