@@ -13,6 +13,8 @@ var fear = 0
 var base_fear = 0
 var is_phone_solved = true
 var corridor_count = 0
+var tier_4_corridor_count = 0
+var tier_4_activated = false
 # start unscramble picture variables
 var picture_coord2id = {
 	Vector2(0,0): 0,

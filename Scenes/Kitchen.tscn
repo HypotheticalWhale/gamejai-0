@@ -120,6 +120,7 @@ layout_mode = 2
 disabled = true
 text = "Put down the phone"
 
+<<<<<<< HEAD
 [node name="PhoneButtonPress" type="AudioStreamPlayer2D" parent="." index="2"]
 unique_name_in_owner = true
 stream = ExtResource("4_pbq7o")
@@ -154,3 +155,19 @@ stream = ExtResource("8_b6yew")
 [connection signal="pressed" from="Phone/VBoxContainer4/ButtonPound" to="." method="_on_button_pound_pressed"]
 [connection signal="pressed" from="Phone/Pick" to="." method="_on_pick_pressed"]
 [connection signal="pressed" from="Phone/Put" to="." method="_on_put_pressed"]
+=======
+[connection signal="pressed" from="ButtonContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer2/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer2/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer2/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer3/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer3/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer3/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer4/ButtonHash" to="." method="_on_button_hash_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer4/Button0" to="." method="_on_button_0_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer4/ButtonPound" to="." method="_on_button_pound_pressed"]
+[connection signal="pressed" from="ButtonContainer/Pick" to="." method="_on_pick_pressed"]
+[connection signal="pressed" from="ButtonContainer/Put" to="." method="_on_put_pressed"]
+>>>>>>> refs/remotes/origin/fear-fix
