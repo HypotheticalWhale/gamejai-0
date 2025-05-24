@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://vp347x5qxpas"]
+[gd_scene load_steps=4 format=3 uid="uid://vp347x5qxpas"]
 
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_nttdi"]
-[ext_resource type="Texture2D" uid="uid://lpb6u2ihbfbc" path="res://Screens/Livingroom.png" id="2_c4cuy"]
+[ext_resource type="Script" uid="uid://b6t6t4x3nd68m" path="res://Scenes/livingroom.gd" id="2_c4cuy"]
+[ext_resource type="Texture2D" uid="uid://cjvlk61twjxxr" path="res://Assets/Living.png" id="2_nttdi"]
 
 [node name="Screen" instance=ExtResource("1_nttdi")]
+script = ExtResource("2_c4cuy")
 
 [node name="TextureRect" parent="." index="0"]
-texture = ExtResource("2_c4cuy")
+offset_right = 2048.0
+offset_bottom = 1152.0
+texture = ExtResource("2_nttdi")
+
+[node name="Node2D" type="Area2D" parent="." index="1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D" index="0"]
+polygon = PackedVector2Array(832, 568, 1220, 562, 1243, 838, 1143, 883, 932, 883, 826, 813)
+
+[connection signal="input_event" from="Node2D" to="." method="_on_node_2d_input_event"]
