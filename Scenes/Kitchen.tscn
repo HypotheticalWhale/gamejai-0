@@ -3,6 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_q5vih"]
 [ext_resource type="Script" uid="uid://d0pt3512k3tgc" path="res://Scenes/Kitchen.gd" id="2_pbq7o"]
 [ext_resource type="Texture2D" uid="uid://c1i7rvcvdimw4" path="res://Assets/Kitchen.png" id="3_t2sl4"]
+[ext_resource type="AudioStream" uid="uid://c86f20u86m3ru" path="res://Sounds/phonebuttonpress_BhvmqLvp.wav" id="4_pbq7o"]
+[ext_resource type="AudioStream" uid="uid://k7pih01iuyf1" path="res://Sounds/PhoneCall1.mp3" id="5_uxyhd"]
+[ext_resource type="AudioStream" uid="uid://ghx2h3kpdoaa" path="res://Sounds/PhoneCall2 .wav" id="6_a5466"]
+[ext_resource type="AudioStream" uid="uid://cm5v7xs11o3r0" path="res://Sounds/PhoneCall3.wav" id="7_6fiwt"]
+[ext_resource type="AudioStream" uid="uid://dof8u0qsvt52r" path="res://Sounds/PhoneCall4.wav" id="8_b6yew"]
 
 [node name="Screen" instance=ExtResource("1_q5vih")]
 script = ExtResource("2_pbq7o")
@@ -12,108 +17,145 @@ offset_right = 2048.0
 offset_bottom = 1152.0
 texture = ExtResource("3_t2sl4")
 
-[node name="ButtonContainer" type="VBoxContainer" parent="." index="1"]
+[node name="Phone" type="VBoxContainer" parent="." index="1"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 453.0
 offset_top = 111.0
 offset_right = 618.0
 offset_bottom = 317.0
 
-[node name="VBoxContainer" type="HBoxContainer" parent="ButtonContainer" index="0"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Phone" index="0"]
 layout_mode = 2
 
-[node name="Button1" type="Button" parent="ButtonContainer/VBoxContainer" index="0"]
+[node name="Button1" type="Button" parent="Phone/VBoxContainer" index="0"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "1"
 
-[node name="Button2" type="Button" parent="ButtonContainer/VBoxContainer" index="1"]
+[node name="Button2" type="Button" parent="Phone/VBoxContainer" index="1"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "2"
 
-[node name="Button3" type="Button" parent="ButtonContainer/VBoxContainer" index="2"]
+[node name="Button3" type="Button" parent="Phone/VBoxContainer" index="2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "3"
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="ButtonContainer" index="1"]
+[node name="VBoxContainer2" type="HBoxContainer" parent="Phone" index="1"]
 layout_mode = 2
 
-[node name="Button4" type="Button" parent="ButtonContainer/VBoxContainer2" index="0"]
+[node name="Button4" type="Button" parent="Phone/VBoxContainer2" index="0"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "4"
 
-[node name="Button5" type="Button" parent="ButtonContainer/VBoxContainer2" index="1"]
+[node name="Button5" type="Button" parent="Phone/VBoxContainer2" index="1"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "5"
 
-[node name="Button6" type="Button" parent="ButtonContainer/VBoxContainer2" index="2"]
+[node name="Button6" type="Button" parent="Phone/VBoxContainer2" index="2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "6"
 
-[node name="VBoxContainer3" type="HBoxContainer" parent="ButtonContainer" index="2"]
+[node name="VBoxContainer3" type="HBoxContainer" parent="Phone" index="2"]
 layout_mode = 2
 
-[node name="Button7" type="Button" parent="ButtonContainer/VBoxContainer3" index="0"]
+[node name="Button7" type="Button" parent="Phone/VBoxContainer3" index="0"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "7"
 
-[node name="Button8" type="Button" parent="ButtonContainer/VBoxContainer3" index="1"]
+[node name="Button8" type="Button" parent="Phone/VBoxContainer3" index="1"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "8"
 
-[node name="Button9" type="Button" parent="ButtonContainer/VBoxContainer3" index="2"]
+[node name="Button9" type="Button" parent="Phone/VBoxContainer3" index="2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "9"
 
-[node name="VBoxContainer4" type="HBoxContainer" parent="ButtonContainer" index="3"]
+[node name="VBoxContainer4" type="HBoxContainer" parent="Phone" index="3"]
 layout_mode = 2
 
-[node name="ButtonHash" type="Button" parent="ButtonContainer/VBoxContainer4" index="0"]
+[node name="ButtonHash" type="Button" parent="Phone/VBoxContainer4" index="0"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "*"
 
-[node name="Button0" type="Button" parent="ButtonContainer/VBoxContainer4" index="1"]
+[node name="Button0" type="Button" parent="Phone/VBoxContainer4" index="1"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "0"
 
-[node name="ButtonPound" type="Button" parent="ButtonContainer/VBoxContainer4" index="2"]
+[node name="ButtonPound" type="Button" parent="Phone/VBoxContainer4" index="2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "#"
 
-[node name="Pick" type="Button" parent="ButtonContainer" index="4"]
+[node name="Pick" type="Button" parent="Phone" index="4"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Pick up the phone"
 
-[node name="Put" type="Button" parent="ButtonContainer" index="5"]
+[node name="Put" type="Button" parent="Phone" index="5"]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 text = "Put down the phone"
 
+<<<<<<< HEAD
+[node name="PhoneButtonPress" type="AudioStreamPlayer2D" parent="." index="2"]
+unique_name_in_owner = true
+stream = ExtResource("4_pbq7o")
+
+[node name="WrongNumber1" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("5_uxyhd")
+
+[node name="WrongNumber2" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource("6_a5466")
+
+[node name="WrongNumber3" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource("7_6fiwt")
+
+[node name="WrongNumber4" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource("8_b6yew")
+
+[node name="WrongNumber5" type="AudioStreamPlayer2D" parent="." index="7"]
+
+[node name="WrongNumber6" type="AudioStreamPlayer2D" parent="." index="8"]
+
+[connection signal="pressed" from="Phone/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Phone/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Phone/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Phone/VBoxContainer2/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Phone/VBoxContainer2/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Phone/VBoxContainer2/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Phone/VBoxContainer3/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Phone/VBoxContainer3/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Phone/VBoxContainer3/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="Phone/VBoxContainer4/ButtonHash" to="." method="_on_button_hash_pressed"]
+[connection signal="pressed" from="Phone/VBoxContainer4/Button0" to="." method="_on_button_0_pressed"]
+[connection signal="pressed" from="Phone/VBoxContainer4/ButtonPound" to="." method="_on_button_pound_pressed"]
+[connection signal="pressed" from="Phone/Pick" to="." method="_on_pick_pressed"]
+[connection signal="pressed" from="Phone/Put" to="." method="_on_put_pressed"]
+=======
 [connection signal="pressed" from="ButtonContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="ButtonContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="ButtonContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
@@ -128,3 +170,4 @@ text = "Put down the phone"
 [connection signal="pressed" from="ButtonContainer/VBoxContainer4/ButtonPound" to="." method="_on_button_pound_pressed"]
 [connection signal="pressed" from="ButtonContainer/Pick" to="." method="_on_pick_pressed"]
 [connection signal="pressed" from="ButtonContainer/Put" to="." method="_on_put_pressed"]
+>>>>>>> refs/remotes/origin/fear-fix

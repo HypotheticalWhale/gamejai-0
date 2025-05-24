@@ -8,7 +8,7 @@ var current_input_set := []
 var current_set_index := 0
 var input_cooldown := 1  # seconds to wait between sets
 var correct_answer = [["9","7","2"],["1","2","3"],["6","8","9"]]
-@onready var wrong_number = get_parent().get_node("WrongNumber")
+var sound_string = "WrongNumber"
 @onready var dial_tone = get_parent().get_node("DialTone")
 @onready var possible_buttons = [
 	%Button0, %Button1, %Button2,
@@ -42,10 +42,23 @@ func _on_button_pressed(button_name: String) -> void:
 				get_parent().stage -= 1
 				Globals.is_phone_solved = true
 			else:
-				print("wrong answer")
+				var aug_sound_string
+				if get_correctness_matrix(input_sets) == [0,0,0]:
+					aug_sound_string = sound_string + "1"
+				if get_correctness_matrix(input_sets) == [0,0,1]:
+					aug_sound_string = sound_string + "2"
+				if get_correctness_matrix(input_sets) == [0,1,0]:
+					aug_sound_string = sound_string + "3"
+				if get_correctness_matrix(input_sets) == [0,1,1]:
+					aug_sound_string = sound_string + "4"
+				if get_correctness_matrix(input_sets) == [1,0,0]:
+					aug_sound_string = sound_string + "5"
+				if get_correctness_matrix(input_sets) == [1,1,0]:
+					aug_sound_string = sound_string + "6"
 				get_tree().paused = true
 				dial_tone.play()
 				await dial_tone.finished
+				var wrong_number = get_parent().get_node(aug_sound_string)
 				wrong_number.play()
 				await wrong_number.finished
 				dial_tone.play()
@@ -55,7 +68,18 @@ func _on_button_pressed(button_name: String) -> void:
 			%Put.set_deferred("disabled", false)
 			
 			# Optionally disable permanently or do something else
-			
+func get_correctness_matrix(reference_array: Array) -> Array:
+	var result: Array = []
+	for i in range(correct_answer.size()):
+		if i >= reference_array.size():
+			break  # Avoid out-of-bounds
+		if correct_answer[i] == reference_array[i]:
+			result.append(1)
+		else:
+			result.append(0)
+	return result
+
+	
 func _set_buttons_enabled():
 	for button in possible_buttons:
 		button.set_deferred("disabled", false)
@@ -65,6 +89,8 @@ func _set_buttons_disabled():
 		button.set_deferred("disabled", true)
 		
 func _ready() -> void:
+	if !get_parent().player_has_key:
+		%Phone.visible = false
 	for button in possible_buttons:
 		button.connect("pressed", _on_button_pressed.bind(button.text))
 	_set_buttons_disabled()
