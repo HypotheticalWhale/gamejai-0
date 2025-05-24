@@ -164,6 +164,7 @@ texture = ExtResource("13_t6n27")
 
 [node name="ShowPicture" type="Button" parent="." index="2"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 762.0
 offset_top = 353.0

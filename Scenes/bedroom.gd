@@ -13,8 +13,9 @@ func _ready() -> void:
 		%Closet.set_deferred("visible",false)
 		get_node("TextureRect").texture = load("res://Screens/Bedroom open w photo.png")
 		
-	
+		
 	if get_tree().current_scene.player_has_key == false:
+		%ShowPicture.visible = false
 		dialog.visible = true
 		dialog.text = Globals.dialog_data["UPON REACHING BEDROOM"]
 		await get_tree().create_timer(30).timeout
