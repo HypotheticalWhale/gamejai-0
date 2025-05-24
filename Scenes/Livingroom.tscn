@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://vp347x5qxpas"]
 
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_nttdi"]
-[ext_resource type="Texture2D" uid="uid://lpb6u2ihbfbc" path="res://Screens/Livingroom.png" id="2_c4cuy"]
+[ext_resource type="Texture2D" uid="uid://bkca46gelv1by" path="res://Assets/Living room.png" id="2_nttdi"]
 
 [node name="Screen" instance=ExtResource("1_nttdi")]
 
 [node name="TextureRect" parent="." index="0"]
-texture = ExtResource("2_c4cuy")
+offset_right = 2048.0
+offset_bottom = 1152.0
+texture = ExtResource("2_nttdi")

@@ -143,6 +143,11 @@ show_percentage = false
 
 [node name="FearTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1011, 565)
+zoom = Vector2(0.95, 0.95)
 
 [connection signal="pressed" from="ScrambledPicture/ExitPicture" to="." method="_on_exit_picture_pressed"]
 [connection signal="timeout" from="FearTimer" to="." method="_on_fear_timer_timeout"]

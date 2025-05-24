@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 const INPUTS_PER_SET := 3
 const TOTAL_SETS := 3

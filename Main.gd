@@ -6,20 +6,31 @@ var current_room = null
 var first_stage = true
 var player_has_key = true
 @onready var fear_timer: Timer = %FearTimer
-var stage: int = 1  # Start at Stage 1
+var stage: int = 3  # Start at Stage 1
+var basefeat = {
+	3 : 0,
+	2 : 20,
+	1 : 30
+}
 
 func move(direction:String):
-	Globals.fear = 0
 	var offset = get_vector(direction)
 	var new_pos = current_position + offset
 	# Wrap the position using mod 4
-	new_pos.x = int(new_pos.x) % 4
-	new_pos.y = int(new_pos.y) % 4
+	new_pos.x = int(new_pos.x) % 6
+	new_pos.y = int(new_pos.y) % 6
+	
+	if new_pos == Vector2(0,0):
+		fear_timer.wait_time = stage
+		Globals.fear = basefeat[stage]
+		%FearMeter.value = basefeat[stage]
+		
 	if player_has_key:
 		first_stage = false
 		fear_timer.stop()
 		fear_timer.start()
-	if first_stage and new_pos == Vector2(0,3):
+		
+	if first_stage and new_pos == Vector2(0,4):
 		print("No room here")
 		return
 	
