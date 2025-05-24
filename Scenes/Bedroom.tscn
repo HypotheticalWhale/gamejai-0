@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_qd8ot"]
 [ext_resource type="Script" uid="uid://bdg432x7xqyg3" path="res://Scenes/bedroom.gd" id="2_t6n27"]
 [ext_resource type="Script" uid="uid://bw82jhuayhvng" path="res://Scenes/show_picture.gd" id="3_0y5hw"]
+[ext_resource type="Texture2D" uid="uid://cns57koynf3mi" path="res://Screens/Frame.png" id="3_23pcv"]
 [ext_resource type="Texture2D" uid="uid://blmwtw7ku3egc" path="res://Assets/BigPictureTiles/0.png" id="4_t6n27"]
-[ext_resource type="Texture2D" uid="uid://e687xhpv0qps" path="res://Assets/PictureFrame.png" id="5_23pcv"]
 [ext_resource type="Texture2D" uid="uid://e66hg7wu4vtm" path="res://Assets/BigPictureTiles/1.png" id="5_mon1l"]
 [ext_resource type="Texture2D" uid="uid://b55onfm4yt05d" path="res://Assets/BigPictureTiles/2.png" id="6_t6n27"]
 [ext_resource type="Texture2D" uid="uid://dsva7rgrw88r" path="res://Assets/BigPictureTiles/3.png" id="7_23pcv"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://go788sc3v6ta" path="res://Assets/BigPictureTiles/7.png" id="11_c8h7i"]
 [ext_resource type="Texture2D" uid="uid://d3wbdmuxa4crl" path="res://Assets/BigPictureTiles/8.png" id="12_jjrne"]
 [ext_resource type="Texture2D" uid="uid://b7xtjp0l5m75r" path="res://Screens/Bedroom open.png" id="13_t6n27"]
-[ext_resource type="Texture2D" uid="uid://cwpneoahqfyvk" path="res://Assets/PictureTiles/8tile.png" id="14_sp2dp"]
 [ext_resource type="AudioStream" uid="uid://jbht6iagio87" path="res://Screens/DoorOpen .wav" id="15_23pcv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1apq4"]
@@ -61,13 +60,13 @@ script = ExtResource("2_t6n27")
 
 [node name="ScrambledPicture" type="Node2D" parent="." index="0"]
 unique_name_in_owner = true
-visible = false
 z_index = 1
 position = Vector2(1009, 569)
 
 [node name="Background" type="Sprite2D" parent="ScrambledPicture" index="0"]
-scale = Vector2(10, 10)
-texture = ExtResource("5_23pcv")
+position = Vector2(-46, -25.5)
+scale = Vector2(0.930664, 0.938368)
+texture = ExtResource("3_23pcv")
 
 [node name="ScrambledPictureTiles" type="Node2D" parent="ScrambledPicture" index="1"]
 unique_name_in_owner = true
@@ -145,10 +144,10 @@ texture = ExtResource("12_jjrne")
 shape = SubResource("RectangleShape2D_1apq4")
 
 [node name="ExitPicture" type="Button" parent="ScrambledPicture" index="2"]
-offset_left = -8.0
-offset_top = 81.0
-offset_right = 88.0
-offset_bottom = 112.0
+offset_left = -114.0
+offset_top = 428.0
+offset_right = -18.0
+offset_bottom = 461.0
 text = "Exit Picture
 "
 
