@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://qgyoam5npi51"]
+[gd_scene load_steps=2 format=3 uid="uid://qgyoam5npi51"]
+
+[sub_resource type="GDScript" id="GDScript_glv2v"]
+script/source = "extends Node2D
+"
 
 [node name="Main" type="Node2D"]
+script = SubResource("GDScript_glv2v")
