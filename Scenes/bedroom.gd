@@ -123,6 +123,7 @@ func update_picture_id2coord():
 
 func _on_exit_picture_pressed() -> void:
 	%ScrambledPicture.visible = false
+	Globals.can_move = true
 
 
 func _on_closet_pressed() -> void:

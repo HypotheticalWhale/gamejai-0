@@ -15,7 +15,8 @@ var basefeat = {
 }
 
 func move(direction:String):
-	print(stage)
+	if !Globals.can_move:
+		return
 	var offset = get_vector(direction)
 	var new_pos = current_position + offset
 	# Wrap the position using mod 4

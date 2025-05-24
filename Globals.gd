@@ -15,6 +15,7 @@ var is_phone_solved = false
 var corridor_count = 0
 var tier_4_corridor_count = 0
 var tier_4_activated = false
+var can_move = true
 # start unscramble picture variables
 var picture_coord2id = {
 	Vector2(0,0): 0,
@@ -48,12 +49,13 @@ var dialog_data = {
 	"CORRIDOR DIALOGUE (UPON ENTERING CORRIDOR FOR SECOND TIME, PICTURE INCOMPLETE– HINT!)":" I can’t seem to remember her face… I wish I could see a picture. ",
 	"CORRIDOR DIALOGUE (UPON ENTERING CORRIDOR FOR SECOND TIME, CALL INCOMPLETE– HINT!)":" I wish I could hear her voice… then I’d know what to do. ",
 	"COMPLETION OF PUZZLE":" That’s what she looked like… we look happy. ",
-	"PHONE DIALOGUE 1": "You’ve reached: GLADWELL HOSPITAL. If you have a grievous injury, press 1. If you have medical queries, press 2. If you’d like to make an appointment, press 3. (That’s not it.) ",
-	"PHONE DIALOGUE 2":" BZZT. BZZT. LOW, GROWLING SOUNDS. ",
-	"PHONE DIALOGUE 3":" BZZT. BZZT. SOBBING, DISTANT. ",
-	"PHONE DIALOGUE 4":" (Man’s voice, angry.) Hello? Who is this? Hello? I know you’re there. I don’t ever want you calling this number again, you understand? ",
-	"PHONE DIALOGUE 5":" Breathing sounds. Phone hangs up. ",
-	"PHONE DIALOGUE 6 (CORRECT) ":" (Woman’s Voice) Hello? Hey, you. It’s good to hear your voice. I’ve got something very important to tell you. (pause) (laughter, clear and bright). Did you think it was really me? (Laughter). Thanks for calling. Leave a message or something. Bye!",
+	"PHONE DIALOGUE 4": "You’ve reached: GLADWELL HOSPITAL. If you have a grievous injury, press 1. If you have medical queries, press 2. If you’d like to make an appointment, press 3. (That’s not it.) ",
+	"PHONE DIALOGUE 1":" BZZT. BZZT. LOW, GROWLING SOUNDS. ",
+	"PHONE DIALOGUE 2":" BZZT. BZZT. SOBBING, DISTANT. ",
+	"PHONE DIALOGUE 3":" BZZT. BZZT. LOW, GROWLING SOUNDS. ",
+	"PHONE DIALOGUE 5":" (Man’s voice, angry.) Hello? Who is this? Hello? I know you’re there. I don’t ever want you calling this number again, you understand? ",
+	"PHONE DIALOGUE 6":" Breathing sounds. Phone hangs up. ",
+	"PHONE DIALOGUE 7":" (Woman’s Voice) Hello? Hey, you. It’s good to hear your voice. I’ve got something very important to tell you. (pause) (laughter, clear and bright). Did you think it was really me? (Laughter). Thanks for calling. Leave a message or something. Bye!",
 	"CORRIDOR DIALOGUE (NECESSARY, TO SET SCENE FOR TIER 4)": "I don’t know if I want to, but I’m starting to remember. ",
 	"DIALOGUE 1 (TRIGGERED BY ENTERING CORRIDOR SECOND TIME)": "How many years did we spend here? How many times did we walk through these rooms? I cannot stop moving forward. I am a stone thrown, arrow fired, a promise set in some distant future.",
 	"DIALOGUE 2 (TRIGGERED BY ENTERING CORRIDOR THIRD TIME)":"Is it fair? Is there a world in which I hold her in my arms again, born anew, a slate wiped clean, to meet as if we’d never met, would we play out this same, tragic myth?",

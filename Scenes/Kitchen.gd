@@ -10,6 +10,8 @@ var input_cooldown := 1  # seconds to wait between sets
 var correct_answer = [["9","7","2"],["1","2","3"],["6","8","9"]]
 var can_stage = true
 var sound_string = "WrongNumber"
+@onready var dialog = get_tree().current_scene.get_node("CanvasLayer/Dialog")
+
 @onready var dial_tone = %DialTone
 @onready var possible_buttons = [
 	%Button0, %Button1, %Button2,
@@ -39,6 +41,8 @@ func _on_button_pressed(button_name: String) -> void:
 		else:
 			print("All inputs collected:", input_sets)
 			if input_sets == correct_answer:
+				dialog.visible = true
+				dialog.text = Globals.dialog_data["PHONE DIALOGUE 6"]
 				print("you got it")
 				get_tree().paused = true
 				dial_tone.play()
@@ -48,6 +52,7 @@ func _on_button_pressed(button_name: String) -> void:
 				await wrong_number.finished
 				dial_tone.play()
 				await dial_tone.finished
+				dialog.visible = false
 				get_tree().paused = false
 				if can_stage:
 					get_parent().stage -= 1
@@ -57,16 +62,28 @@ func _on_button_pressed(button_name: String) -> void:
 				var aug_sound_string
 				if get_correctness_matrix(input_sets) == [0,0,0]:
 					aug_sound_string = sound_string + "1"
+					dialog.visible = true
+					dialog.text = Globals.dialog_data["PHONE DIALOGUE 1"]
 				if get_correctness_matrix(input_sets) == [0,0,1]:
 					aug_sound_string = sound_string + "2"
+					dialog.visible = true
+					dialog.text = Globals.dialog_data["PHONE DIALOGUE 2"]
 				if get_correctness_matrix(input_sets) == [0,1,0]:
 					aug_sound_string = sound_string + "3"
+					dialog.visible = true
+					dialog.text = Globals.dialog_data["PHONE DIALOGUE 3"]
 				if get_correctness_matrix(input_sets) == [0,1,1]:
 					aug_sound_string = sound_string + "4"
+					dialog.visible = true
+					dialog.text = Globals.dialog_data["PHONE DIALOGUE 4"]
 				if get_correctness_matrix(input_sets) == [1,0,0]:
 					aug_sound_string = sound_string + "5"
+					dialog.visible = true
+					dialog.text = Globals.dialog_data["PHONE DIALOGUE 5"]
 				if get_correctness_matrix(input_sets) == [1,1,0]:
 					aug_sound_string = sound_string + "6"
+					dialog.visible = true
+					dialog.text = Globals.dialog_data["PHONE DIALOGUE 6"]
 				input_sets = []
 				get_tree().paused = true
 				dial_tone.play()
@@ -76,6 +93,7 @@ func _on_button_pressed(button_name: String) -> void:
 				await wrong_number.finished
 				dial_tone.play()
 				await dial_tone.finished
+				dialog.visible = false
 				get_tree().paused = false
 				
 			%Put.set_deferred("disabled", false)
