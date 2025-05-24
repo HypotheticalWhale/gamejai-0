@@ -27,7 +27,6 @@ func load_room():
 		current_room.queue_free()
 	var scene_to_load = Globals.location_map[current_position].scene
 	var scene = load(scene_to_load).instantiate()
-	print(scene)
 	add_child(scene)
 
 func _ready() -> void:
