@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://qgyoam5npi51"]
+[gd_scene load_steps=7 format=3 uid="uid://qgyoam5npi51"]
 
 [ext_resource type="Script" uid="uid://chb747dwkr3cn" path="res://Main.gd" id="1_uu6xs"]
 [ext_resource type="AudioStream" uid="uid://bu71281dkme74" path="res://Sounds/bgm.mp3" id="2_uu6xs"]
 [ext_resource type="AudioStream" uid="uid://bevbr5ugfast6" path="res://Sounds/FootstepsSFX.wav" id="3_r0du0"]
 [ext_resource type="AudioStream" uid="uid://drx15gykj233w" path="res://Sounds/Phone.wav" id="4_cm0pq"]
+[ext_resource type="AudioStream" uid="uid://k7pih01iuyf1" path="res://Sounds/You ve reached GLADW.mp3" id="5_3dxm6"]
+[ext_resource type="AudioStream" uid="uid://cysvbiyq0g4ie" path="res://Sounds/Phone Dial Tone.mp3" id="5_fos0i"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_uu6xs")
@@ -73,5 +75,11 @@ volume_db = 11.39
 [node name="Phone" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_cm0pq")
 volume_db = 10.0
+
+[node name="WrongNumber" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3dxm6")
+
+[node name="DialTone" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_fos0i")
 
 [connection signal="timeout" from="FearTimer" to="." method="_on_fear_timer_timeout"]

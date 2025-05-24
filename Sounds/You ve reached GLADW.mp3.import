@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://k7pih01iuyf1"
+path="res://.godot/imported/You ve reached GLADW.mp3-1f4fc3613640df1b88cf61fe87dedef2.mp3str"
+
+[deps]
+
+source_file="res://Sounds/You ve reached GLADW.mp3"
+dest_files=["res://.godot/imported/You ve reached GLADW.mp3-1f4fc3613640df1b88cf61fe87dedef2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
