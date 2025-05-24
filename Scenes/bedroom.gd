@@ -71,6 +71,7 @@ func initialize_picture():
 
 func _on_tile_clicked(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
+		print(event.position)
 		var tile_coord_clicked = ((event.position - Globals.picture_global_position) / Globals.tile_length).round()
 		print(tile_coord_clicked)
 		var adjacent_gap = get_adjacent_gap(tile_coord_clicked)

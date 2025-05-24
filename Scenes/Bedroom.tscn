@@ -18,10 +18,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1apq4"]
 
 [node name="Screen2" instance=ExtResource("1_qd8ot")]
+mouse_filter = 1
 script = ExtResource("2_t6n27")
 
 [node name="ScrambledPicture" type="Node2D" parent="." index="0"]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 position = Vector2(1009, 569)
 
@@ -122,7 +124,6 @@ text = "not solved"
 [node name="TextureRect" parent="." index="1"]
 offset_right = 2048.0
 offset_bottom = 1152.0
-mouse_filter = 2
 texture = ExtResource("2_qd8ot")
 
 [node name="ShowPicture" type="Button" parent="." index="2"]

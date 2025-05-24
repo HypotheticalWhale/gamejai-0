@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://qgyoam5npi51"]
+[gd_scene load_steps=5 format=3 uid="uid://qgyoam5npi51"]
 
 [ext_resource type="Script" uid="uid://chb747dwkr3cn" path="res://Main.gd" id="1_uu6xs"]
+[ext_resource type="AudioStream" uid="uid://bu71281dkme74" path="res://Sounds/bgm.mp3" id="2_uu6xs"]
+[ext_resource type="AudioStream" uid="uid://bevbr5ugfast6" path="res://Sounds/FootstepsSFX.wav" id="3_r0du0"]
+[ext_resource type="AudioStream" uid="uid://drx15gykj233w" path="res://Sounds/Phone.wav" id="4_cm0pq"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_uu6xs")
@@ -37,8 +40,24 @@ show_percentage = false
 unique_name_in_owner = true
 wait_time = 3.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1011, 565)
-zoom = Vector2(0.95, 0.95)
+[node name="FootstepCooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_uu6xs")
+volume_db = -10.4
+autoplay = true
+parameters/looping = true
+
+[node name="FootSteps" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_r0du0")
+volume_db = 11.39
+
+[node name="Phone" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_cm0pq")
+volume_db = 10.0
 
 [connection signal="timeout" from="FearTimer" to="." method="_on_fear_timer_timeout"]
