@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://be7o6ifqab0i6"]
+[gd_scene load_steps=11 format=3 uid="uid://be7o6ifqab0i6"]
 
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_q5vih"]
 [ext_resource type="Script" uid="uid://d0pt3512k3tgc" path="res://Scenes/Kitchen.gd" id="2_pbq7o"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://ghx2h3kpdoaa" path="res://Sounds/PhoneCall2 .wav" id="6_a5466"]
 [ext_resource type="AudioStream" uid="uid://cm5v7xs11o3r0" path="res://Sounds/PhoneCall3.wav" id="7_6fiwt"]
 [ext_resource type="AudioStream" uid="uid://dof8u0qsvt52r" path="res://Sounds/PhoneCall4.wav" id="8_b6yew"]
+[ext_resource type="AudioStream" uid="uid://cyql43c2dc2dk" path="res://Sounds/PhoneCall5.mp3" id="9_yp2dn"]
+[ext_resource type="AudioStream" uid="uid://dyw10yc4v6gop" path="res://Sounds/PhoneCall6.mp3" id="10_0sqtt"]
 
 [node name="Screen" instance=ExtResource("1_q5vih")]
 script = ExtResource("2_pbq7o")
@@ -137,8 +139,10 @@ stream = ExtResource("7_6fiwt")
 stream = ExtResource("8_b6yew")
 
 [node name="WrongNumber5" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("9_yp2dn")
 
 [node name="WrongNumber6" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("10_0sqtt")
 
 [connection signal="pressed" from="Phone/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Phone/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
