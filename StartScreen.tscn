@@ -1,0 +1,58 @@
+[gd_scene load_steps=14 format=3 uid="uid://p1fd3kpxuvmc"]
+
+[ext_resource type="Texture2D" uid="uid://cns57koynf3mi" path="res://Screens/Frame.png" id="1_d4clo"]
+[ext_resource type="Script" uid="uid://bphmla87uv870" path="res://StartButton.gd" id="1_s4vtk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4clo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mqr7l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2adt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vno1p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gtard"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vuion"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_06rl2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhimr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xupoq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ykci1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_343mv"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 2399.0
+offset_bottom = 1360.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_d4clo")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 14.0
+offset_right = 1913.0
+offset_bottom = 1091.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d4clo")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mqr7l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t2adt")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vno1p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gtard")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vuion")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_06rl2")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_bhimr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xupoq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ykci1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_343mv")
+script = ExtResource("1_s4vtk")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

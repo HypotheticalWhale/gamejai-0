@@ -7,22 +7,22 @@ var input_sets := []
 var current_input_set := []
 var current_set_index := 0
 var input_cooldown := 1  # seconds to wait between sets
-var correct_answer = [["9","7","2"],["1","2","3"],["6","8","9"]]
+var correct_answer = [["9","7","2"],["3","1","2"],["6","8","9"]]
 var can_stage = true
 var sound_string = "WrongNumber"
 @onready var dialog = get_tree().current_scene.get_node("CanvasLayer/Dialog")
 
 @onready var dial_tone = %DialTone
 @onready var possible_buttons = [
-	%Button0, %Button1, %Button2,
-	%Button3, %Button4, %Button5,
-	%Button6, %Button7, %Button8,
-	%Button9, %ButtonHash, %ButtonPound
+	"0", "1", "2",
+	"3", "4", "5",
+	"6", "7", "8",
+	"9", "*", "#"
 ]
 
 
 func _on_button_pressed(button_name: String) -> void:	
-
+	
 	if current_set_index >= TOTAL_SETS:
 		return  # Stop accepting input
 	%PhoneButtonPress.play()
@@ -41,8 +41,6 @@ func _on_button_pressed(button_name: String) -> void:
 		else:
 			print("All inputs collected:", input_sets)
 			if input_sets == correct_answer:
-				dialog.visible = true
-				dialog.text = Globals.dialog_data["PHONE DIALOGUE 6"]
 				print("you got it")
 				get_tree().paused = true
 				dial_tone.play()
@@ -62,28 +60,16 @@ func _on_button_pressed(button_name: String) -> void:
 				var aug_sound_string
 				if get_correctness_matrix(input_sets) == [0,0,0]:
 					aug_sound_string = sound_string + "1"
-					dialog.visible = true
-					dialog.text = Globals.dialog_data["PHONE DIALOGUE 1"]
 				if get_correctness_matrix(input_sets) == [0,0,1]:
 					aug_sound_string = sound_string + "2"
-					dialog.visible = true
-					dialog.text = Globals.dialog_data["PHONE DIALOGUE 2"]
 				if get_correctness_matrix(input_sets) == [0,1,0]:
 					aug_sound_string = sound_string + "3"
-					dialog.visible = true
-					dialog.text = Globals.dialog_data["PHONE DIALOGUE 3"]
 				if get_correctness_matrix(input_sets) == [0,1,1]:
 					aug_sound_string = sound_string + "4"
-					dialog.visible = true
-					dialog.text = Globals.dialog_data["PHONE DIALOGUE 4"]
 				if get_correctness_matrix(input_sets) == [1,0,0]:
 					aug_sound_string = sound_string + "5"
-					dialog.visible = true
-					dialog.text = Globals.dialog_data["PHONE DIALOGUE 5"]
 				if get_correctness_matrix(input_sets) == [1,1,0]:
 					aug_sound_string = sound_string + "6"
-					dialog.visible = true
-					dialog.text = Globals.dialog_data["PHONE DIALOGUE 6"]
 				input_sets = []
 				get_tree().paused = true
 				dial_tone.play()
@@ -93,9 +79,8 @@ func _on_button_pressed(button_name: String) -> void:
 				await wrong_number.finished
 				dial_tone.play()
 				await dial_tone.finished
-				
 				get_tree().paused = false
-				
+				_set_buttons_enabled()
 			%Put.set_deferred("disabled", false)
 			
 			# Optionally disable permanently or do something else
@@ -113,19 +98,27 @@ func get_correctness_matrix(reference_array: Array) -> Array:
 	
 func _set_buttons_enabled():
 	for button in possible_buttons:
-		button.set_deferred("disabled", false)
+		print("PhoneSprite/Phone/"+button)
+		var temp_button = get_node("PhoneSprite/Phone/"+button)
+		temp_button.set_deferred("disabled", false)
 
 func _set_buttons_disabled():
 	for button in possible_buttons:
-		button.set_deferred("disabled", true)
+		print("PhoneSprite/Phone/"+button)
+		var temp_button = get_node("PhoneSprite/Phone/"+button)
+		temp_button.set_deferred("disabled", true)
 		
 func _ready() -> void:
 	if !get_parent().player_has_key:
 		%Phone.visible = false
+		%OpenPhone.visible = false
+		%PhoneSprite.visible = false
 	if Globals.is_phone_solved:
 		can_stage = false
 	for button in possible_buttons:
-		button.connect("pressed", _on_button_pressed.bind(button.text))
+		print("PhoneSprite/Phone/"+button)
+		var temp_button = get_node("PhoneSprite/Phone/"+button)
+		temp_button.connect("pressed", _on_button_pressed.bind(temp_button.name))
 	_set_buttons_disabled()
 
 func _on_pick_pressed() -> void:
@@ -137,6 +130,12 @@ func _on_put_pressed() -> void:
 	get_parent().get_node("Phone").play()
 	current_input_set = []
 	current_set_index = 0
-	%Put.set_deferred("disabled", true)
 	%Pick.set_deferred("disabled", false)
+	%PhoneSprite.visible = false
+	Globals.can_move = true
 	
+func _on_open_phone_pressed() -> void:
+	Globals.can_move = false
+	%PhoneSprite.visible = true
+	get_parent().get_node("Phone").play()
+	_set_buttons_enabled()

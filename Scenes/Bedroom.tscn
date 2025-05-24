@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d0htj0beihwht"]
+[gd_scene load_steps=35 format=3 uid="uid://d0htj0beihwht"]
 
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_qd8ot"]
 [ext_resource type="Script" uid="uid://bdg432x7xqyg3" path="res://Scenes/bedroom.gd" id="2_t6n27"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://go788sc3v6ta" path="res://Assets/BigPictureTiles/7.png" id="11_c8h7i"]
 [ext_resource type="Texture2D" uid="uid://d3wbdmuxa4crl" path="res://Assets/BigPictureTiles/8.png" id="12_jjrne"]
 [ext_resource type="Texture2D" uid="uid://b7xtjp0l5m75r" path="res://Screens/Bedroom open.png" id="13_t6n27"]
+[ext_resource type="Texture2D" uid="uid://cwpneoahqfyvk" path="res://Assets/PictureTiles/8tile.png" id="14_sp2dp"]
+[ext_resource type="AudioStream" uid="uid://jbht6iagio87" path="res://Screens/DoorOpen .wav" id="15_23pcv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1apq4"]
 
@@ -152,13 +154,14 @@ text = "Exit Picture
 
 [node name="IsSolved" type="Label" parent="ScrambledPicture" index="3"]
 unique_name_in_owner = true
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "not solved"
 
 [node name="TextureRect" parent="." index="1"]
-offset_right = 2048.0
-offset_bottom = 1152.0
+offset_right = 2392.0
+offset_bottom = 1345.0
 texture = ExtResource("13_t6n27")
 
 [node name="ShowPicture" type="Button" parent="." index="2"]
@@ -196,6 +199,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_7w4da")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_23pcv")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_av51l")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mon1l")
+
+[node name="ClosetSound" type="AudioStreamPlayer2D" parent="." index="4"]
+unique_name_in_owner = true
+stream = ExtResource("15_23pcv")
 
 [connection signal="pressed" from="ScrambledPicture/ExitPicture" to="." method="_on_exit_picture_pressed"]
 [connection signal="pressed" from="ShowPicture" to="." method="_on_show_picture_pressed"]
