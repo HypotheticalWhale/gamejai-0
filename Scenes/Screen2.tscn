@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bke45sy0ivas0"]
+
+[ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_f18y2"]
+[ext_resource type="Texture2D" uid="uid://lpb6u2ihbfbc" path="res://Screens/Screen2.png" id="2_d1luh"]
+
+[node name="Screen" instance=ExtResource("1_f18y2")]
+
+[node name="TextureRect" parent="." index="0"]
+texture = ExtResource("2_d1luh")
