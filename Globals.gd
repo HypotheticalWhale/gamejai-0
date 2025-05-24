@@ -9,3 +9,23 @@ var location_map = {
 
 var fear = 0
 var base_fear = 0
+# start unscramble picture variables
+var picture_coord2id = {
+	Vector2(0,0): 0,
+	Vector2(1,0): 1,
+	Vector2(2,0): 2,
+	Vector2(0,1): 3,
+	Vector2(1,1): 4,
+	Vector2(2,1): 5,
+	Vector2(0,2): 6,
+	Vector2(1,2): 8,
+	Vector2(2,2): 7,
+}
+
+var picture_id2coord = {}
+
+var gap_id: int = 8
+var tile_length = 128
+var num_rows = 3
+var picture_global_position = Vector2(480, 240)
+# end unscramble picture variables

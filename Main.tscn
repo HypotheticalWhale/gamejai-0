@@ -1,9 +1,119 @@
-[gd_scene load_steps=2 format=3 uid="uid://qgyoam5npi51"]
+[gd_scene load_steps=13 format=3 uid="uid://qgyoam5npi51"]
 
+[ext_resource type="Texture2D" uid="uid://b3d48pfmd3yle" path="res://Assets/PictureTiles/0tile.png" id="1_trn2v"]
 [ext_resource type="Script" uid="uid://chb747dwkr3cn" path="res://Main.gd" id="1_uu6xs"]
+[ext_resource type="Texture2D" uid="uid://e687xhpv0qps" path="res://Assets/PictureFrame.png" id="1_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://qyu3px672k0y" path="res://Assets/PictureTiles/1tile.png" id="2_03owx"]
+[ext_resource type="Texture2D" uid="uid://dgho7yh68y5g0" path="res://Assets/PictureTiles/2tile.png" id="3_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://duavspdgy4m6l" path="res://Assets/PictureTiles/3tile.png" id="4_20pc6"]
+[ext_resource type="Texture2D" uid="uid://dhwkg25h30mbu" path="res://Assets/PictureTiles/4tile.png" id="5_5vvyt"]
+[ext_resource type="Texture2D" uid="uid://cli3evxdibpx7" path="res://Assets/PictureTiles/5tile.png" id="6_03owx"]
+[ext_resource type="Texture2D" uid="uid://2s4bk6wo3scp" path="res://Assets/PictureTiles/7tile.png" id="6_c6i3y"]
+[ext_resource type="Texture2D" uid="uid://cdlsnfo7qk06p" path="res://Assets/PictureTiles/6tile.png" id="7_c2ibq"]
+[ext_resource type="Texture2D" uid="uid://cwpneoahqfyvk" path="res://Assets/PictureTiles/8tile.png" id="8_j4qnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glv2v"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_uu6xs")
+
+[node name="ScrambledPicture" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(199, 161)
+
+[node name="Background" type="Sprite2D" parent="ScrambledPicture"]
+scale = Vector2(10, 10)
+texture = ExtResource("1_wkp8b")
+
+[node name="ScrambledPictureTiles" type="Node2D" parent="ScrambledPicture"]
+unique_name_in_owner = true
+
+[node name="Tile0" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile0"]
+texture = ExtResource("1_trn2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile0"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile1" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile1"]
+texture = ExtResource("2_03owx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile1"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile2" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile2"]
+texture = ExtResource("3_wkp8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile2"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile3" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile3"]
+texture = ExtResource("4_20pc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile3"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile4" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile4"]
+texture = ExtResource("5_5vvyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile4"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile5" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile5"]
+texture = ExtResource("6_03owx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile5"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile6" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile6"]
+texture = ExtResource("7_c2ibq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile6"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile7" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile7"]
+texture = ExtResource("6_c6i3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile7"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile8" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile8"]
+visible = false
+texture = ExtResource("8_j4qnp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile8"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="ExitPicture" type="Button" parent="ScrambledPicture"]
+offset_left = -8.0
+offset_top = 81.0
+offset_right = 88.0
+offset_bottom = 112.0
+text = "Exit Picture
+"
+
+[node name="IsSolved" type="Label" parent="ScrambledPicture"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "not solved"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -34,4 +144,5 @@ show_percentage = false
 [node name="FearTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[connection signal="pressed" from="ScrambledPicture/ExitPicture" to="." method="_on_exit_picture_pressed"]
 [connection signal="timeout" from="FearTimer" to="." method="_on_fear_timer_timeout"]
