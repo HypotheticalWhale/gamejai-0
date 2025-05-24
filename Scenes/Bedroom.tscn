@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://go788sc3v6ta" path="res://Assets/BigPictureTiles/7.png" id="11_c8h7i"]
 [ext_resource type="Texture2D" uid="uid://d3wbdmuxa4crl" path="res://Assets/BigPictureTiles/8.png" id="12_jjrne"]
 [ext_resource type="Texture2D" uid="uid://b7xtjp0l5m75r" path="res://Screens/Bedroom open.png" id="13_t6n27"]
-[ext_resource type="Texture2D" uid="uid://cwpneoahqfyvk" path="res://Assets/PictureTiles/8tile.png" id="14_sp2dp"]
 [ext_resource type="AudioStream" uid="uid://jbht6iagio87" path="res://Screens/DoorOpen .wav" id="15_23pcv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1apq4"]
@@ -55,7 +54,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mon1l"]
 
-[node name="Screen2" instance=ExtResource("1_qd8ot")]
+[node name="Screen3" instance=ExtResource("1_qd8ot")]
 mouse_filter = 1
 script = ExtResource("2_t6n27")
 

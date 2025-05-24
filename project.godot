@@ -28,10 +28,13 @@ window/dpi/allow_hidpi=false
 
 [gui]
 
+fonts/dynamic_fonts/use_oversampling=false
 theme/custom_font="uid://dh5ncbjplpioh"
+theme/default_font_multichannel_signed_distance_field=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=3
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/default_filters/use_nearest_mipmap_filter=true
