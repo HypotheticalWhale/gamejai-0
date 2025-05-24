@@ -18,8 +18,8 @@ func get_vector(direction:String):
 	match direction:
 		"north": return Vector2(0,1)
 		#"south": Vector2(1,0)
-		"east": return Vector2(0,1)
-		"west": return Vector2(0,-1)
+		"east": return Vector2(1,0)
+		"west": return Vector2(-1,0)
 		_: return Vector2(0,0)
 		
 func load_room():
