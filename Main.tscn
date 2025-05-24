@@ -1,8 +1,219 @@
-[gd_scene load_steps=2 format=3 uid="uid://qgyoam5npi51"]
+[gd_scene load_steps=13 format=3 uid="uid://qgyoam5npi51"]
+
+[ext_resource type="Texture2D" uid="uid://b3d48pfmd3yle" path="res://Assets/PictureTiles/0tile.png" id="1_trn2v"]
+[ext_resource type="Texture2D" uid="uid://e687xhpv0qps" path="res://Assets/PictureFrame.png" id="1_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://qyu3px672k0y" path="res://Assets/PictureTiles/1tile.png" id="2_03owx"]
+[ext_resource type="Texture2D" uid="uid://dgho7yh68y5g0" path="res://Assets/PictureTiles/2tile.png" id="3_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://duavspdgy4m6l" path="res://Assets/PictureTiles/3tile.png" id="4_20pc6"]
+[ext_resource type="Texture2D" uid="uid://dhwkg25h30mbu" path="res://Assets/PictureTiles/4tile.png" id="5_5vvyt"]
+[ext_resource type="Texture2D" uid="uid://cli3evxdibpx7" path="res://Assets/PictureTiles/5tile.png" id="6_03owx"]
+[ext_resource type="Texture2D" uid="uid://2s4bk6wo3scp" path="res://Assets/PictureTiles/7tile.png" id="6_c6i3y"]
+[ext_resource type="Texture2D" uid="uid://cdlsnfo7qk06p" path="res://Assets/PictureTiles/6tile.png" id="7_c2ibq"]
+[ext_resource type="Texture2D" uid="uid://cwpneoahqfyvk" path="res://Assets/PictureTiles/8tile.png" id="8_j4qnp"]
 
 [sub_resource type="GDScript" id="GDScript_glv2v"]
 script/source = "extends Node2D
+
+var current_position = \"0,0\"
+
+func get_adjacent_gap(tile_coord):
+	# id 8 represents gap
+	if Globals.picture_coord2id[tile_coord] == Globals.gap_id:
+		return Vector2(-1,-1)
+	print(\"getting gap\")
+	for direction in [Vector2.RIGHT, Vector2.UP, Vector2.LEFT, Vector2.DOWN]:
+		var adjacent_coord = tile_coord + direction
+		if adjacent_coord not in Globals.picture_coord2id.keys():
+			continue
+		if Globals.picture_coord2id[adjacent_coord] == Globals.gap_id:
+			return adjacent_coord
+	
+	# if no missing gaps found, return (-1,-1)
+	return Vector2(-1,-1)
+
+
+func fill_gap(initial_coord, final_coord):
+	# final coord must always be a gap)
+	assert(Globals.picture_coord2id[final_coord] == Globals.gap_id)
+	
+	# animate the sliding of the tile
+	var tile_nodes_ordered_by_id: Array = %ScrambledPictureTiles.get_children()
+	var tween = get_tree().create_tween()
+	var initial_tile_node = tile_nodes_ordered_by_id[Globals.picture_coord2id[initial_coord]]
+	tween.tween_property(initial_tile_node, \"global_position\", (final_coord * Globals.tile_length) + Globals.picture_global_position, 0.2)
+
+	# \"move\" the gap (you won't see this)
+	var gap_tile_node = tile_nodes_ordered_by_id[Globals.picture_coord2id[final_coord]]
+	gap_tile_node.global_position = (initial_coord * Globals.tile_length) + Globals.picture_global_position
+	
+	# update the dictionaries
+	var temp_id = Globals.picture_coord2id[initial_coord]
+	Globals.picture_coord2id[initial_coord] = Globals.picture_coord2id[final_coord]
+	Globals.picture_coord2id[final_coord] = temp_id
+	await update_picture_id2coord()
+	
+
+func is_picture_unscrambled():
+	var current_picture = Globals.picture_coord2id.values()
+	var ordered_picture = current_picture.duplicate(true)
+	ordered_picture.sort()
+	print(current_picture)
+	print(ordered_picture)
+	if current_picture == ordered_picture:
+		%IsSolved.text = \"solved\"
+		return true
+	
+	%IsSolved.text = \"not solved\"
+	return false
+
+
+func initialize_picture():
+	var i = 0
+	#var j = 0
+	for tile in %ScrambledPictureTiles.get_children():
+		#tile.global_position = Vector2(i*tile_length, j*tile_length) + picture_global_position
+		tile.global_position = Globals.picture_id2coord[i]*Globals.tile_length + Globals.picture_global_position
+		tile.get_node(\"CollisionShape2D\").shape.size = Vector2(Globals.tile_length * 2/3, Globals.tile_length * 2/3)
+		tile.input_event.connect(_on_tile_clicked)
+		i += 1
+		#if i > num_rows-1:
+			#i = 0
+			#j += 1
+
+
+func _on_tile_clicked(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		var tile_coord_clicked = ((event.position - Globals.picture_global_position) / Globals.tile_length).round()
+		print(tile_coord_clicked)
+		var adjacent_gap = get_adjacent_gap(tile_coord_clicked)
+		if adjacent_gap != (Vector2(-1,-1)):
+			print(\"sliding\")
+			await fill_gap(tile_coord_clicked, adjacent_gap)
+		else:
+			print(\"not sliding\")
+		print(is_picture_unscrambled())
+			
+
+func update_picture_id2coord():
+	for coord in Globals.picture_coord2id:
+		Globals.picture_id2coord[Globals.picture_coord2id[coord]] = coord
+	
+	
+func _ready() -> void:
+	await update_picture_id2coord()
+	await initialize_picture()
+	var tile_coord_clicked = Vector2(1,2)
+	
+	
+
+	
+
+
+func _on_exit_picture_pressed() -> void:
+	%ScrambledPicture.visible = false
 "
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glv2v"]
 
 [node name="Main" type="Node2D"]
 script = SubResource("GDScript_glv2v")
+
+[node name="ScrambledPicture" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(199, 161)
+
+[node name="Background" type="Sprite2D" parent="ScrambledPicture"]
+scale = Vector2(10, 10)
+texture = ExtResource("1_wkp8b")
+
+[node name="ScrambledPictureTiles" type="Node2D" parent="ScrambledPicture"]
+unique_name_in_owner = true
+
+[node name="Tile0" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile0"]
+texture = ExtResource("1_trn2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile0"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile1" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile1"]
+texture = ExtResource("2_03owx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile1"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile2" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile2"]
+texture = ExtResource("3_wkp8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile2"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile3" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile3"]
+texture = ExtResource("4_20pc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile3"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile4" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile4"]
+texture = ExtResource("5_5vvyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile4"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile5" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile5"]
+texture = ExtResource("6_03owx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile5"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile6" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile6"]
+texture = ExtResource("7_c2ibq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile6"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile7" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile7"]
+texture = ExtResource("6_c6i3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile7"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Tile8" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile8"]
+visible = false
+texture = ExtResource("8_j4qnp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile8"]
+shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="ExitPicture" type="Button" parent="ScrambledPicture"]
+offset_left = -8.0
+offset_top = 81.0
+offset_right = 88.0
+offset_bottom = 112.0
+text = "Exit Picture
+"
+
+[node name="IsSolved" type="Label" parent="ScrambledPicture"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "not solved"
+
+[connection signal="pressed" from="ScrambledPicture/ExitPicture" to="." method="_on_exit_picture_pressed"]
