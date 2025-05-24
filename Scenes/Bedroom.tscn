@@ -3,17 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_qd8ot"]
 [ext_resource type="Script" uid="uid://bdg432x7xqyg3" path="res://Scenes/bedroom.gd" id="2_t6n27"]
 [ext_resource type="Script" uid="uid://bw82jhuayhvng" path="res://Scenes/show_picture.gd" id="3_0y5hw"]
+[ext_resource type="Texture2D" uid="uid://blmwtw7ku3egc" path="res://Assets/BigPictureTiles/0.png" id="4_t6n27"]
 [ext_resource type="Texture2D" uid="uid://e687xhpv0qps" path="res://Assets/PictureFrame.png" id="5_23pcv"]
-[ext_resource type="Texture2D" uid="uid://b3d48pfmd3yle" path="res://Assets/PictureTiles/0tile.png" id="6_mon1l"]
-[ext_resource type="Texture2D" uid="uid://qyu3px672k0y" path="res://Assets/PictureTiles/1tile.png" id="7_vpmn7"]
-[ext_resource type="Texture2D" uid="uid://dgho7yh68y5g0" path="res://Assets/PictureTiles/2tile.png" id="8_r48xv"]
-[ext_resource type="Texture2D" uid="uid://duavspdgy4m6l" path="res://Assets/PictureTiles/3tile.png" id="9_c8h7i"]
-[ext_resource type="Texture2D" uid="uid://dhwkg25h30mbu" path="res://Assets/PictureTiles/4tile.png" id="10_jjrne"]
-[ext_resource type="Texture2D" uid="uid://cli3evxdibpx7" path="res://Assets/PictureTiles/5tile.png" id="11_7w4da"]
-[ext_resource type="Texture2D" uid="uid://cdlsnfo7qk06p" path="res://Assets/PictureTiles/6tile.png" id="12_av51l"]
-[ext_resource type="Texture2D" uid="uid://2s4bk6wo3scp" path="res://Assets/PictureTiles/7tile.png" id="13_ad3fp"]
+[ext_resource type="Texture2D" uid="uid://e66hg7wu4vtm" path="res://Assets/BigPictureTiles/1.png" id="5_mon1l"]
+[ext_resource type="Texture2D" uid="uid://b55onfm4yt05d" path="res://Assets/BigPictureTiles/2.png" id="6_t6n27"]
+[ext_resource type="Texture2D" uid="uid://dsva7rgrw88r" path="res://Assets/BigPictureTiles/3.png" id="7_23pcv"]
+[ext_resource type="Texture2D" uid="uid://c7niiuimvn0c3" path="res://Assets/BigPictureTiles/4.png" id="8_mon1l"]
+[ext_resource type="Texture2D" uid="uid://db4omip5gro8l" path="res://Assets/BigPictureTiles/5.png" id="9_vpmn7"]
+[ext_resource type="Texture2D" uid="uid://bx7p4v3ar3ymy" path="res://Assets/BigPictureTiles/6.png" id="10_r48xv"]
+[ext_resource type="Texture2D" uid="uid://go788sc3v6ta" path="res://Assets/BigPictureTiles/7.png" id="11_c8h7i"]
+[ext_resource type="Texture2D" uid="uid://d3wbdmuxa4crl" path="res://Assets/BigPictureTiles/8.png" id="12_jjrne"]
 [ext_resource type="Texture2D" uid="uid://b7xtjp0l5m75r" path="res://Screens/Bedroom open.png" id="13_t6n27"]
-[ext_resource type="Texture2D" uid="uid://cwpneoahqfyvk" path="res://Assets/PictureTiles/8tile.png" id="14_sp2dp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1apq4"]
 
@@ -73,7 +73,7 @@ unique_name_in_owner = true
 [node name="Tile0" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles" index="0"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile0" index="0"]
-texture = ExtResource("6_mon1l")
+texture = ExtResource("4_t6n27")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile0" index="1"]
 shape = SubResource("RectangleShape2D_1apq4")
@@ -81,7 +81,7 @@ shape = SubResource("RectangleShape2D_1apq4")
 [node name="Tile1" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles" index="1"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile1" index="0"]
-texture = ExtResource("7_vpmn7")
+texture = ExtResource("5_mon1l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile1" index="1"]
 shape = SubResource("RectangleShape2D_1apq4")
@@ -89,7 +89,7 @@ shape = SubResource("RectangleShape2D_1apq4")
 [node name="Tile2" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles" index="2"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile2" index="0"]
-texture = ExtResource("8_r48xv")
+texture = ExtResource("6_t6n27")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile2" index="1"]
 shape = SubResource("RectangleShape2D_1apq4")
@@ -97,7 +97,7 @@ shape = SubResource("RectangleShape2D_1apq4")
 [node name="Tile3" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles" index="3"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile3" index="0"]
-texture = ExtResource("9_c8h7i")
+texture = ExtResource("7_23pcv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile3" index="1"]
 shape = SubResource("RectangleShape2D_1apq4")
@@ -105,7 +105,7 @@ shape = SubResource("RectangleShape2D_1apq4")
 [node name="Tile4" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles" index="4"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile4" index="0"]
-texture = ExtResource("10_jjrne")
+texture = ExtResource("8_mon1l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile4" index="1"]
 shape = SubResource("RectangleShape2D_1apq4")
@@ -113,7 +113,7 @@ shape = SubResource("RectangleShape2D_1apq4")
 [node name="Tile5" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles" index="5"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile5" index="0"]
-texture = ExtResource("11_7w4da")
+texture = ExtResource("9_vpmn7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile5" index="1"]
 shape = SubResource("RectangleShape2D_1apq4")
@@ -121,7 +121,7 @@ shape = SubResource("RectangleShape2D_1apq4")
 [node name="Tile6" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles" index="6"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile6" index="0"]
-texture = ExtResource("12_av51l")
+texture = ExtResource("10_r48xv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile6" index="1"]
 shape = SubResource("RectangleShape2D_1apq4")
@@ -129,7 +129,7 @@ shape = SubResource("RectangleShape2D_1apq4")
 [node name="Tile7" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles" index="7"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile7" index="0"]
-texture = ExtResource("13_ad3fp")
+texture = ExtResource("11_c8h7i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile7" index="1"]
 shape = SubResource("RectangleShape2D_1apq4")
@@ -137,8 +137,7 @@ shape = SubResource("RectangleShape2D_1apq4")
 [node name="Tile8" type="Area2D" parent="ScrambledPicture/ScrambledPictureTiles" index="8"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile8" index="0"]
-visible = false
-texture = ExtResource("14_sp2dp")
+texture = ExtResource("12_jjrne")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScrambledPicture/ScrambledPictureTiles/Tile8" index="1"]
 shape = SubResource("RectangleShape2D_1apq4")
