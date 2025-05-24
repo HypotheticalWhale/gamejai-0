@@ -8,6 +8,6 @@
 script = ExtResource("2_xlkp1")
 
 [node name="TextureRect" parent="." index="0"]
-offset_right = 2048.0
-offset_bottom = 1152.0
+offset_right = 2393.0
+offset_bottom = 1346.0
 texture = ExtResource("2_we05l")

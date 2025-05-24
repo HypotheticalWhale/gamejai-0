@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bevbr5ugfast6" path="res://Sounds/FootstepsSFX.wav" id="3_r0du0"]
 [ext_resource type="AudioStream" uid="uid://drx15gykj233w" path="res://Sounds/Phone.wav" id="4_cm0pq"]
 [ext_resource type="AudioStream" uid="uid://kei2jqs3n4o8" path="res://Sounds/Fear75.wav" id="4_lgr22"]
-[ext_resource type="Script" uid="uid://gh1rpd6hnduj" path="res://fear_overlay.gd" id="5_trn2v"]
+[ext_resource type="Script" path="res://fear_overlay.gd" id="5_trn2v"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_uu6xs")

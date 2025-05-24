@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxre6cgtj131s"]
+[gd_scene load_steps=3 format=3 uid="uid://dux635t6bcqij"]
 
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_dyjbl"]
 [ext_resource type="Texture2D" uid="uid://cn25hmovjknns" path="res://Assets/Corridor.png" id="2_7jym2"]
@@ -6,6 +6,6 @@
 [node name="Screen3" instance=ExtResource("1_dyjbl")]
 
 [node name="TextureRect" parent="." index="0"]
-offset_right = 2048.0
-offset_bottom = 1152.0
+offset_right = 2391.0
+offset_bottom = 1345.0
 texture = ExtResource("2_7jym2")

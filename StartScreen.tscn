@@ -31,17 +31,17 @@ anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 2132.0
-offset_bottom = 1202.0
-scale = Vector2(0.6, 0.6)
+offset_right = 2399.0
+offset_bottom = 1360.0
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_d4clo")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 14.0
-offset_right = 1274.0
-offset_bottom = 722.0
+offset_right = 1913.0
+offset_bottom = 1091.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d4clo")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mqr7l")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_t2adt")

@@ -76,8 +76,8 @@
 script = ExtResource("2_pbq7o")
 
 [node name="TextureRect" parent="." index="0"]
-offset_right = 2048.0
-offset_bottom = 1152.0
+offset_right = 2396.0
+offset_bottom = 1347.0
 texture = ExtResource("3_57t66")
 
 [node name="PhoneButtonPress" type="AudioStreamPlayer2D" parent="." index="1"]
