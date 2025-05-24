@@ -3,18 +3,30 @@ extends Node2D
 var current_position = Vector2(0,0)
 var current_room_string = "res://Scenes/Screen.tscn"
 var current_room = null
+var first_stage = true
+var player_has_key = true
+@onready var fear_timer: Timer = %FearTimer
+var stage: int = 1  # Start at Stage 1
 
 func move(direction:String):
+	Globals.fear = 0
 	var offset = get_vector(direction)
 	var new_pos = current_position + offset
 	# Wrap the position using mod 4
 	new_pos.x = int(new_pos.x) % 4
 	new_pos.y = int(new_pos.y) % 4
+	if player_has_key:
+		first_stage = false
+		fear_timer.stop()
+		fear_timer.start()
+	if first_stage and new_pos == Vector2(0,3):
+		print("No room here")
+		return
+	
 	if Globals.location_map.has(new_pos):
 		current_position = new_pos
 		load_room()
-	else:
-		print("No room here")
+
 		
 func get_vector(direction:String):
 	match direction:
@@ -40,3 +52,6 @@ func _process(delta: float) -> void:
 	%FearMeter.value = Globals.fear
 	if Input.is_action_just_pressed("ui_up"):
 		move("north")
+
+func _on_fear_timer_timeout() -> void:
+	Globals.fear += 1

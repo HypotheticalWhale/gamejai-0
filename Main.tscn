@@ -26,7 +26,12 @@ text = "fear:"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 80)
 layout_mode = 2
-step = 10.0
+step = 1.0
 value = 50.0
 fill_mode = 3
 show_percentage = false
+
+[node name="FearTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="FearTimer" to="." method="_on_fear_timer_timeout"]

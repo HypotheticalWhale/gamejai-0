@@ -8,3 +8,4 @@ var location_map = {
 }
 
 var fear = 0
+var base_fear = 0
