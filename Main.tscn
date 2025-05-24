@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://qgyoam5npi51"]
+[gd_scene load_steps=10 format=3 uid="uid://qgyoam5npi51"]
 
 [ext_resource type="Script" uid="uid://chb747dwkr3cn" path="res://Main.gd" id="1_uu6xs"]
+[ext_resource type="AudioStream" uid="uid://b7ygo2ysq20vy" path="res://Sounds/Fear25.wav" id="2_03owx"]
+[ext_resource type="AudioStream" uid="uid://kei2jqs3n4o8" path="res://Sounds/Fear75.wav" id="2_lgr22"]
 [ext_resource type="AudioStream" uid="uid://bu71281dkme74" path="res://Sounds/bgm.mp3" id="2_uu6xs"]
 [ext_resource type="AudioStream" uid="uid://bevbr5ugfast6" path="res://Sounds/FootstepsSFX.wav" id="3_r0du0"]
+[ext_resource type="AudioStream" uid="uid://c6j31emgmryeh" path="res://Sounds/Fear50.wav" id="3_wkp8b"]
 [ext_resource type="AudioStream" uid="uid://drx15gykj233w" path="res://Sounds/Phone.wav" id="4_cm0pq"]
 [ext_resource type="AudioStream" uid="uid://k7pih01iuyf1" path="res://Sounds/You ve reached GLADW.mp3" id="5_3dxm6"]
-[ext_resource type="AudioStream" uid="uid://cysvbiyq0g4ie" path="res://Sounds/Phone Dial Tone.mp3" id="5_fos0i"]
+[ext_resource type="AudioStream" uid="uid://de57hv5bsy5sc" path="res://Sounds/phone-dial-tone_ZGgw2zFY.mp3" id="6_3dxm6"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_uu6xs")
@@ -38,6 +41,18 @@ value = 50.0
 fill_mode = 3
 show_percentage = false
 
+[node name="Fear25" type="AudioStreamPlayer2D" parent="CanvasLayer/VBoxContainer/FearContainer"]
+unique_name_in_owner = true
+stream = ExtResource("2_03owx")
+
+[node name="Fear50" type="AudioStreamPlayer2D" parent="CanvasLayer/VBoxContainer/FearContainer"]
+unique_name_in_owner = true
+stream = ExtResource("3_wkp8b")
+
+[node name="Fear75" type="AudioStreamPlayer2D" parent="CanvasLayer/VBoxContainer/FearContainer"]
+unique_name_in_owner = true
+stream = ExtResource("2_lgr22")
+
 [node name="Dialog" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
@@ -51,6 +66,7 @@ offset_top = -23.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+text = "asdf"
 
 [node name="FearTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -62,6 +78,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("2_uu6xs")
 volume_db = -10.4
 autoplay = true
@@ -69,17 +86,21 @@ parameters/looping = true
 
 [node name="FootSteps" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 stream = ExtResource("3_r0du0")
 volume_db = 11.39
 
 [node name="Phone" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("4_cm0pq")
 volume_db = 10.0
 
 [node name="WrongNumber" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("5_3dxm6")
 
 [node name="DialTone" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_fos0i")
+process_mode = 3
+stream = ExtResource("6_3dxm6")
 
 [connection signal="timeout" from="FearTimer" to="." method="_on_fear_timer_timeout"]
