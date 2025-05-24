@@ -61,6 +61,9 @@ var dialog_data = {
 	"DIALOGUE 2 (TRIGGERED BY ENTERING CORRIDOR THIRD TIME)":"Is it fair? Is there a world in which I hold her in my arms again, born anew, a slate wiped clean, to meet as if we’d never met, would we play out this same, tragic myth?",
 	"DIALOGUE 3 (TRIGGERED BY ENTERING CORRIDOR FOURTH TIME)": "There is no justice, not for something like me. There is no world in which I am allowed to hold. Unborn, filth, to never meet because we had to meet. I know how it ends. I know how it all ends.",
 	"UPON ENTERING BEDROOM FOR THE LAST TIME, CORRIDOR LOCKED": "There’s nothing left. There’s nowhere left to go. I know how it ends. I know how it all ends.",
-	"FINAL DIALOGUE (UPON TURNING BACK)": "I’m sorry. I’m sorry. I’m sorry. I’m sorry. I’m sorry. I’m sorry."
+	"FINAL DIALOGUE (UPON TURNING BACK)": "I’m sorry. I’m sorry. I’m sorry. I’m sorry. I’m sorry. I’m sorry.",
+	"CLUE 1": "There’s a note on the desk… hastily scribbled on are the numbers  1 - 9,7,2",
+	"CLUE 2": "TThere’s a note trapped in the pages… hastily scribbled on are the numbers 2 - 3,1,2 ",
+	"CLUE 3": "There’s a note under the couch… hastily scribbled on are the numbers 3 - 6,8,9.",	
 }
 # end dialog variables

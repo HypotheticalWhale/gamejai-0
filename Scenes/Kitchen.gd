@@ -52,7 +52,7 @@ func _on_button_pressed(button_name: String) -> void:
 				await wrong_number.finished
 				dial_tone.play()
 				await dial_tone.finished
-				dialog.visible = false
+				
 				get_tree().paused = false
 				if can_stage:
 					get_parent().stage -= 1
@@ -93,7 +93,7 @@ func _on_button_pressed(button_name: String) -> void:
 				await wrong_number.finished
 				dial_tone.play()
 				await dial_tone.finished
-				dialog.visible = false
+				
 				get_tree().paused = false
 				
 			%Put.set_deferred("disabled", false)

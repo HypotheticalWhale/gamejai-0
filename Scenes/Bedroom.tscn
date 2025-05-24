@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0htj0beihwht"]
+[gd_scene load_steps=34 format=3 uid="uid://d0htj0beihwht"]
 
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_qd8ot"]
-[ext_resource type="Texture2D" uid="uid://cw0vnl64exnq6" path="res://Assets/Bedroom.png" id="2_qd8ot"]
 [ext_resource type="Script" uid="uid://bdg432x7xqyg3" path="res://Scenes/bedroom.gd" id="2_t6n27"]
 [ext_resource type="Script" uid="uid://bw82jhuayhvng" path="res://Scenes/show_picture.gd" id="3_0y5hw"]
 [ext_resource type="Texture2D" uid="uid://e687xhpv0qps" path="res://Assets/PictureFrame.png" id="5_23pcv"]
@@ -13,9 +12,46 @@
 [ext_resource type="Texture2D" uid="uid://cli3evxdibpx7" path="res://Assets/PictureTiles/5tile.png" id="11_7w4da"]
 [ext_resource type="Texture2D" uid="uid://cdlsnfo7qk06p" path="res://Assets/PictureTiles/6tile.png" id="12_av51l"]
 [ext_resource type="Texture2D" uid="uid://2s4bk6wo3scp" path="res://Assets/PictureTiles/7tile.png" id="13_ad3fp"]
+[ext_resource type="Texture2D" uid="uid://b7xtjp0l5m75r" path="res://Screens/Bedroom open.png" id="13_t6n27"]
 [ext_resource type="Texture2D" uid="uid://cwpneoahqfyvk" path="res://Assets/PictureTiles/8tile.png" id="14_sp2dp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1apq4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ad3fp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sp2dp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1apq4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yn18c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okg3v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g5ldm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sub5g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lyld5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h1bl1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c8h7i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpmn7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r48xv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjrne"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6n27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7w4da"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23pcv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av51l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mon1l"]
 
 [node name="Screen2" instance=ExtResource("1_qd8ot")]
 mouse_filter = 1
@@ -124,27 +160,42 @@ text = "not solved"
 [node name="TextureRect" parent="." index="1"]
 offset_right = 2048.0
 offset_bottom = 1152.0
-texture = ExtResource("2_qd8ot")
+texture = ExtResource("13_t6n27")
 
 [node name="ShowPicture" type="Button" parent="." index="2"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
-offset_left = 863.0
-offset_top = 510.0
-offset_right = 1094.0
-offset_bottom = 541.0
-text = "aksjdhflkjasdfhkldsjhalkfjhfd"
+offset_left = 762.0
+offset_top = 353.0
+offset_right = 864.0
+offset_bottom = 423.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ad3fp")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_sp2dp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1apq4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_yn18c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_okg3v")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_g5ldm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sub5g")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_lyld5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h1bl1")
 script = ExtResource("3_0y5hw")
 
 [node name="Closet" type="Button" parent="." index="3"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 286.0
-offset_top = 399.0
-offset_right = 517.0
-offset_bottom = 430.0
-text = "this is a closet"
+offset_left = 317.0
+offset_top = 49.0
+offset_right = 672.0
+offset_bottom = 568.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c8h7i")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpmn7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_r48xv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jjrne")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t6n27")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_7w4da")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_23pcv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_av51l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mon1l")
 
 [connection signal="pressed" from="ScrambledPicture/ExitPicture" to="." method="_on_exit_picture_pressed"]
 [connection signal="pressed" from="ShowPicture" to="." method="_on_show_picture_pressed"]

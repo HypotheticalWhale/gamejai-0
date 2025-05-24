@@ -16,16 +16,12 @@ func _ready() -> void:
 	if get_tree().current_scene.player_has_key == false:
 		dialog.visible = true
 		dialog.text = Globals.dialog_data["UPON REACHING BEDROOM"]
-		await get_tree().create_timer(3).timeout
-		dialog.visible = false
-		
 		await get_tree().create_timer(30).timeout
 		# need to check if we should still play this when the room changes
 		if get_tree().current_scene.player_has_key == false:
 			dialog.visible = true
 			dialog.text = Globals.dialog_data["AFTER 30 SECONDS OF BEING IN BEDROOM"]
-			await get_tree().create_timer(3).timeout
-			dialog.visible = false
+			
 	
 func get_adjacent_gap(tile_coord):
 	# id 8 represents gap
@@ -114,8 +110,7 @@ func _on_tile_clicked(viewport, event, shape_idx):
 			
 			dialog.visible = true
 			dialog.text = Globals.dialog_data["COMPLETION OF PUZZLE"]
-			await get_tree().create_timer(3).timeout
-			dialog.visible = false
+			
 
 func update_picture_id2coord():
 	for coord in Globals.picture_coord2id:
@@ -132,5 +127,4 @@ func _on_closet_pressed() -> void:
 	dialog.visible = true
 	dialog.text = Globals.dialog_data["AFTER OPENING CLOSET"]
 	%Closet.set_deferred("visible",false)
-	await get_tree().create_timer(3).timeout
-	dialog.visible = false
+	get_node("TextureRect").texture = load("res://Screens/Bedroom open w photo.png")
