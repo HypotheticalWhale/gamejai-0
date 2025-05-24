@@ -1,8 +1,11 @@
 extends Control
 
 @onready var dialog = get_tree().current_scene.get_node("CanvasLayer/Dialog")
+var can_stage = true
 
 func _ready() -> void:
+	if Globals.is_picture_unscrambled:
+		can_stage = false
 	if get_tree().current_scene.player_has_key:
 		await update_picture_id2coord()
 		await initialize_picture()
@@ -102,7 +105,10 @@ func _on_tile_clicked(viewport, event, shape_idx):
 			print("not sliding")
 		Globals.is_picture_unscrambled = get_is_picture_unscrambled()
 		if Globals.is_picture_unscrambled:
-			get_tree().current_scene.stage -= 1
+			if can_stage:
+				get_tree().current_scene.stage -= 1
+				can_stage = false
+				
 			for tile in %ScrambledPictureTiles.get_children():
 				tile.input_pickable = false
 			

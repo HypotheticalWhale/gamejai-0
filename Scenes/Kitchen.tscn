@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://be7o6ifqab0i6"]
+[gd_scene load_steps=13 format=3 uid="uid://be7o6ifqab0i6"]
 
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_q5vih"]
 [ext_resource type="Script" uid="uid://d0pt3512k3tgc" path="res://Scenes/Kitchen.gd" id="2_pbq7o"]
 [ext_resource type="Texture2D" uid="uid://c1i7rvcvdimw4" path="res://Assets/Kitchen.png" id="3_t2sl4"]
 [ext_resource type="AudioStream" uid="uid://c86f20u86m3ru" path="res://Sounds/phonebuttonpress_BhvmqLvp.wav" id="4_pbq7o"]
+[ext_resource type="AudioStream" uid="uid://bdl1332wak7rv" path="res://Sounds/PhoneCall1.wav" id="5_0sqtt"]
 [ext_resource type="AudioStream" uid="uid://k7pih01iuyf1" path="res://Sounds/PhoneCall1.mp3" id="5_uxyhd"]
 [ext_resource type="AudioStream" uid="uid://ghx2h3kpdoaa" path="res://Sounds/PhoneCall2 .wav" id="6_a5466"]
 [ext_resource type="AudioStream" uid="uid://cm5v7xs11o3r0" path="res://Sounds/PhoneCall3.wav" id="7_6fiwt"]
 [ext_resource type="AudioStream" uid="uid://dof8u0qsvt52r" path="res://Sounds/PhoneCall4.wav" id="8_b6yew"]
 [ext_resource type="AudioStream" uid="uid://cyql43c2dc2dk" path="res://Sounds/PhoneCall5.mp3" id="9_yp2dn"]
 [ext_resource type="AudioStream" uid="uid://dyw10yc4v6gop" path="res://Sounds/PhoneCall6.mp3" id="10_0sqtt"]
+[ext_resource type="AudioStream" uid="uid://de57hv5bsy5sc" path="res://Sounds/phone-dial-tone_ZGgw2zFY.mp3" id="12_57t66"]
 
 [node name="Screen" instance=ExtResource("1_q5vih")]
 script = ExtResource("2_pbq7o")
@@ -124,25 +126,49 @@ text = "Put down the phone"
 
 [node name="PhoneButtonPress" type="AudioStreamPlayer2D" parent="." index="2"]
 unique_name_in_owner = true
+process_mode = 3
 stream = ExtResource("4_pbq7o")
 
 [node name="WrongNumber1" type="AudioStreamPlayer2D" parent="." index="3"]
-stream = ExtResource("5_uxyhd")
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("5_0sqtt")
 
 [node name="WrongNumber2" type="AudioStreamPlayer2D" parent="." index="4"]
+unique_name_in_owner = true
+process_mode = 3
 stream = ExtResource("6_a5466")
 
 [node name="WrongNumber3" type="AudioStreamPlayer2D" parent="." index="5"]
+unique_name_in_owner = true
+process_mode = 3
 stream = ExtResource("7_6fiwt")
+volume_db = 10.0
 
 [node name="WrongNumber4" type="AudioStreamPlayer2D" parent="." index="6"]
+unique_name_in_owner = true
+process_mode = 3
 stream = ExtResource("8_b6yew")
 
 [node name="WrongNumber5" type="AudioStreamPlayer2D" parent="." index="7"]
+unique_name_in_owner = true
+process_mode = 3
 stream = ExtResource("9_yp2dn")
 
 [node name="WrongNumber6" type="AudioStreamPlayer2D" parent="." index="8"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("5_uxyhd")
+
+[node name="WrongNumber7" type="AudioStreamPlayer2D" parent="." index="9"]
+unique_name_in_owner = true
+process_mode = 3
 stream = ExtResource("10_0sqtt")
+
+[node name="DialTone" type="AudioStreamPlayer2D" parent="." index="10"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("12_57t66")
 
 [connection signal="pressed" from="Phone/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Phone/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
