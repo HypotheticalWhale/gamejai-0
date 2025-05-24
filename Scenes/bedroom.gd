@@ -26,7 +26,6 @@ func get_adjacent_gap(tile_coord):
 	# id 8 represents gap
 	if Globals.picture_coord2id[tile_coord] == Globals.gap_id:
 		return Vector2(-1,-1)
-	print("getting gap")
 	for direction in [Vector2.RIGHT, Vector2.UP, Vector2.LEFT, Vector2.DOWN]:
 		var adjacent_coord = tile_coord + direction
 		if adjacent_coord not in Globals.picture_coord2id.keys():
@@ -67,6 +66,7 @@ func get_is_picture_unscrambled():
 	print(ordered_picture)
 	if current_picture == ordered_picture:
 		%IsSolved.text = "solved"
+
 		return true
 	
 	%IsSolved.text = "not solved"
@@ -99,7 +99,15 @@ func _on_tile_clicked(viewport, event, shape_idx):
 		else:
 			print("not sliding")
 		Globals.is_picture_unscrambled = get_is_picture_unscrambled()
+		if Globals.is_picture_unscrambled:
+			get_tree().current_scene.stage -= 1
+			for tile in %ScrambledPictureTiles.get_children():
+				tile.input_pickable = false
 			
+			dialog.visible = true
+			dialog.text = Globals.dialog_data["COMPLETION OF PUZZLE"]
+			await get_tree().create_timer(3).timeout
+			dialog.visible = false
 
 func update_picture_id2coord():
 	for coord in Globals.picture_coord2id:
