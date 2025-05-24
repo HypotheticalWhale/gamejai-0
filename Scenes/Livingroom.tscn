@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b6t6t4x3nd68m" path="res://Scenes/livingroom.gd" id="2_c4cuy"]
 [ext_resource type="Texture2D" uid="uid://cjvlk61twjxxr" path="res://Assets/Living.png" id="2_nttdi"]
 
-[node name="Screen" instance=ExtResource("1_nttdi")]
+[node name="Screen2" instance=ExtResource("1_nttdi")]
 script = ExtResource("2_c4cuy")
 
 [node name="TextureRect" parent="." index="0"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bb8uui4bjtad0"]
 
-[node name="Screen" type="Control"]
+[node name="Screen2" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 

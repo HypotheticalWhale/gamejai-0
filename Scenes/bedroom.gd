@@ -11,6 +11,7 @@ func _ready() -> void:
 		await initialize_picture()
 		%ShowPicture.visible = true
 		%Closet.set_deferred("visible",false)
+		get_node("TextureRect").texture = load("res://Screens/Bedroom open w photo.png")
 		
 	
 	if get_tree().current_scene.player_has_key == false:
