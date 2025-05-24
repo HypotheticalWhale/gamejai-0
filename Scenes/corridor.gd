@@ -4,6 +4,8 @@ extends Control
 
 func _ready() -> void:
 	Globals.corridor_count += 1
+	
+	print("t4 is activated?: ", Globals.tier_4_activated)
 	if Globals.tier_4_activated:
 		Globals.tier_4_corridor_count += 1
 		
@@ -55,14 +57,6 @@ func _ready() -> void:
 		dialog.visible = false
 		return
 
-	# solved both, enter tier 4
-	if (Globals.is_picture_unscrambled and Globals.is_phone_solved):
-		dialog.visible = true
-		dialog.text = Globals.dialog_data["CORRIDOR DIALOGUE (NECESSARY, TO SET SCENE FOR TIER 4)"]
-		await get_tree().create_timer(6).timeout
-		dialog.visible = false
-		Globals.tier_4_activated = true
-		return
 	
 		# solved both, enter tier 4
 	if (Globals.is_picture_unscrambled and Globals.is_phone_solved and Globals.tier_4_corridor_count == 0):
