@@ -8,8 +8,8 @@
 script = ExtResource("2_inx7g")
 
 [node name="TextureRect" parent="." index="0"]
-offset_right = 2048.0
-offset_bottom = 1152.0
+offset_right = 2389.0
+offset_bottom = 1344.0
 texture = ExtResource("2_36v2t")
 
 [node name="Node2D" type="Node2D" parent="." index="1"]
@@ -17,16 +17,19 @@ texture = ExtResource("2_36v2t")
 [node name="Area2D" type="Area2D" parent="Node2D" index="0"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Area2D" index="0"]
-polygon = PackedVector2Array(99, 620, 160, 574, 272, 632, 202, 683)
+position = Vector2(34, 98)
+polygon = PackedVector2Array(74, 619, 160, 574, 272, 632, 196, 690)
 
 [node name="Area2D2" type="Area2D" parent="Node2D" index="1"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Area2D2" index="0"]
-polygon = PackedVector2Array(775, 301, 745, 301, 742, 371, 777, 371)
+position = Vector2(124, 72)
+polygon = PackedVector2Array(772, 283, 742, 287, 742, 371, 777, 371)
 
 [node name="Area2D3" type="Area2D" parent="Node2D" index="2"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Area2D3" index="0"]
+position = Vector2(237, 134)
 polygon = PackedVector2Array(1396, 791, 1391, 857, 1463, 879, 1395, 788)
 
 [connection signal="input_event" from="Node2D/Area2D" to="." method="_on_area_2d_input_event"]
