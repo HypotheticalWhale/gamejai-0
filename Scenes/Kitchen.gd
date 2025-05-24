@@ -8,7 +8,8 @@ var current_input_set := []
 var current_set_index := 0
 var input_cooldown := 1  # seconds to wait between sets
 var correct_answer = [["9","7","2"],["1","2","3"],["6","8","9"]]
-
+@onready var wrong_number = get_parent().get_node("WrongNumber")
+@onready var dial_tone = get_parent().get_node("DialTone")
 @onready var possible_buttons = [
 	%Button0, %Button1, %Button2,
 	%Button3, %Button4, %Button5,
@@ -18,9 +19,11 @@ var correct_answer = [["9","7","2"],["1","2","3"],["6","8","9"]]
 
 
 func _on_button_pressed(button_name: String) -> void:	
+
 	if current_set_index >= TOTAL_SETS:
 		return  # Stop accepting input
-
+	%PhoneButtonPress.play()
+	await %PhoneButtonPress.finished
 	current_input_set.append(button_name)
 	if current_input_set.size() == INPUTS_PER_SET:
 		input_sets.append(current_input_set.duplicate())
@@ -40,6 +43,15 @@ func _on_button_pressed(button_name: String) -> void:
 				Globals.is_phone_solved = true
 			else:
 				print("wrong answer")
+				get_tree().paused = true
+				dial_tone.play()
+				await dial_tone.finished
+				wrong_number.play()
+				await wrong_number.finished
+				dial_tone.play()
+				await dial_tone.finished
+				get_tree().paused = false
+				
 			%Put.set_deferred("disabled", false)
 			
 			# Optionally disable permanently or do something else

@@ -58,6 +58,22 @@ func load_room():
 
 func _on_fear_timer_timeout() -> void:
 	Globals.fear += 1
+	if Globals.fear >= 25:
+		if not %Fear25.playing:
+			%Fear25.play()
+	if Globals.fear >= 50:
+		if %Fear25.playing:
+			%Fear25.stop()
+		if not %Fear50.playing:
+			%Fear50.play()
+	if Globals.fear >= 75:
+		if %Fear25.playing:
+			%Fear25.stop()
+		if %Fear50.playing:
+			%Fear50.stop()
+		if not %Fear75.playing:
+			%Fear75.play()
+		
 
 func _ready() -> void:
 	var scene_to_load = Globals.location_map[current_position].scene
