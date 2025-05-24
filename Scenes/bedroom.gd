@@ -129,4 +129,6 @@ func _on_closet_pressed() -> void:
 	dialog.visible = true
 	dialog.text = Globals.dialog_data["AFTER OPENING CLOSET"]
 	%Closet.set_deferred("visible",false)
+	%ClosetSound.play()
 	get_node("TextureRect").texture = load("res://Screens/Bedroom open w photo.png")
+	
