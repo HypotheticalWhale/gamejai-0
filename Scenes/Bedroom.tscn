@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bke45sy0ivas0"]
+[gd_scene load_steps=3 format=3 uid="uid://d0htj0beihwht"]
 
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_qd8ot"]
 [ext_resource type="Texture2D" uid="uid://38lrhgccoodt" path="res://Screens/Bedroom.png" id="2_qd8ot"]
