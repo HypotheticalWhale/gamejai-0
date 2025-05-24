@@ -29,6 +29,7 @@ func move(direction:String):
 	if player_has_key:
 		first_stage = false
 		fear_timer.stop()
+		fear_timer.wait_time = stage
 		fear_timer.start()
 		
 	if first_stage and new_pos == Vector2(0,5):
