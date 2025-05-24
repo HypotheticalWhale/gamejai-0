@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bevbr5ugfast6" path="res://Sounds/FootstepsSFX.wav" id="3_r0du0"]
 [ext_resource type="AudioStream" uid="uid://c6j31emgmryeh" path="res://Sounds/Fear50.wav" id="3_wkp8b"]
 [ext_resource type="AudioStream" uid="uid://drx15gykj233w" path="res://Sounds/Phone.wav" id="4_cm0pq"]
-[ext_resource type="AudioStream" uid="uid://k7pih01iuyf1" path="res://Sounds/You ve reached GLADW.mp3" id="5_3dxm6"]
+[ext_resource type="AudioStream" uid="uid://k7pih01iuyf1" path="res://Sounds/PhoneCall1.mp3" id="5_3dxm6"]
 [ext_resource type="AudioStream" uid="uid://de57hv5bsy5sc" path="res://Sounds/phone-dial-tone_ZGgw2zFY.mp3" id="6_3dxm6"]
 
 [node name="Main" type="Node2D"]
