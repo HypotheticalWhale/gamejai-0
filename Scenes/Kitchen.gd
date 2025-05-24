@@ -9,7 +9,7 @@ var current_set_index := 0
 var input_cooldown := 1  # seconds to wait between sets
 var correct_answer = [["9","7","2"],["1","2","3"],["6","8","9"]]
 var sound_string = "WrongNumber"
-@onready var dial_tone = get_parent().get_node("DialTone")
+@onready var dial_tone = %DialTone
 @onready var possible_buttons = [
 	%Button0, %Button1, %Button2,
 	%Button3, %Button4, %Button5,
@@ -39,6 +39,15 @@ func _on_button_pressed(button_name: String) -> void:
 			print("All inputs collected:", input_sets)
 			if input_sets == correct_answer:
 				print("you got it")
+				get_tree().paused = true
+				dial_tone.play()
+				await dial_tone.finished
+				var wrong_number = get_node("WrongNumber7")
+				wrong_number.play()
+				await wrong_number.finished
+				dial_tone.play()
+				await dial_tone.finished
+				get_tree().paused = false
 				get_parent().stage -= 1
 				Globals.is_phone_solved = true
 			else:
@@ -55,10 +64,11 @@ func _on_button_pressed(button_name: String) -> void:
 					aug_sound_string = sound_string + "5"
 				if get_correctness_matrix(input_sets) == [1,1,0]:
 					aug_sound_string = sound_string + "6"
+				input_sets = []
 				get_tree().paused = true
 				dial_tone.play()
 				await dial_tone.finished
-				var wrong_number = get_parent().get_node(aug_sound_string)
+				var wrong_number = get_node(aug_sound_string)
 				wrong_number.play()
 				await wrong_number.finished
 				dial_tone.play()

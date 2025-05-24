@@ -10,8 +10,8 @@ var player_has_key = false
 var stage: int = 3  # Start at Stage 1
 var basefeat = {
 	3 : 0,
-	2 : 20,
-	1 : 30
+	2 : 25,
+	1 : 50
 }
 
 func move(direction:String):
