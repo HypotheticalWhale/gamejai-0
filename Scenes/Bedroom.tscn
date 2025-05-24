@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0htj0beihwht"]
 
 [ext_resource type="PackedScene" uid="uid://bb8uui4bjtad0" path="res://Scenes/BaseScreen.tscn" id="1_qd8ot"]
-[ext_resource type="Texture2D" uid="uid://38lrhgccoodt" path="res://Screens/Bedroom.png" id="2_qd8ot"]
+[ext_resource type="Texture2D" uid="uid://c50b5x4elthq1" path="res://Assets/bedroom.png" id="2_qd8ot"]
 
 [node name="Screen" instance=ExtResource("1_qd8ot")]
 
 [node name="TextureRect" parent="." index="0"]
+scale = Vector2(0.37, 0.37)
 texture = ExtResource("2_qd8ot")
